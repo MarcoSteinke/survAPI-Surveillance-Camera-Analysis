@@ -5,6 +5,6 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(1254 / 2, 835 / 2);
+    createCanvas(1254, 835);
     image(img, 0, 0);
 }
