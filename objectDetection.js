@@ -16,4 +16,8 @@ function setup() {
     createCanvas(1254, 835);
     image(img, 0, 0);
 
+    detector.detect(img, (error, result) => {
+        objects = result;
+    });
+
 }
