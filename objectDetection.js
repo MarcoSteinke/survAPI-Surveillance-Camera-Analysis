@@ -18,6 +18,10 @@ function setup() {
 
     detector.detect(img, (error, result) => {
         objects = result;
+
+        objects.forEach( object => {
+            text(object.label, object.x, object.y - 10);
+        });
     });
 
 }
