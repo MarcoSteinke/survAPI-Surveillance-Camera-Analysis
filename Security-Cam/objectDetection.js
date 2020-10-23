@@ -2,6 +2,8 @@ let video;
 let detector;
 let objects = [];
 
+const TARGET = "person";
+
 function preload() {
     video = createCapture(VIDEO);
     video.hide();
@@ -29,7 +31,7 @@ function label() {
     if(objects && objects.length > 0) {
         objects.forEach( object => {
 
-            if(object.label == "person") {
+            if(object.label == TARGET) {
                 text(object.label, object.x, object.y - 10);
     
                 stroke(0, 255, 0);
