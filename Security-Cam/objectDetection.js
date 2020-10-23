@@ -25,16 +25,7 @@ function detect() {
     });
 }
 
-function draw() {
-
-    clear();
-
-    image(video, 0, 0);
-
-    detect();
-
-    console.log(objects);
-
+function label() {
     if(objects && objects.length > 0) {
         objects.forEach( object => {
 
@@ -52,5 +43,15 @@ function draw() {
 
         });
     }
+}
+
+function draw() {
+
+    clear();
+
+    image(video, 0, 0);
+
+    detect();
+    label();
     
 }
