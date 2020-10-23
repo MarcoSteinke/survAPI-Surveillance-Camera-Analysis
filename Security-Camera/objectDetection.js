@@ -29,6 +29,8 @@ function draw() {
 
     clear();
 
+    image(video, 0, 0);
+
     detect();
 
     console.log(objects);
