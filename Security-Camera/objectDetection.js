@@ -15,21 +15,19 @@ function modelLoaded() {
 function setup() {
     createCanvas(1254, 835);
     image(video, 0, 0);
-
-    detector.detect(video, (error, result) => {
-        objects = result;
-
-        objects.forEach( object => {
-            text(object.label, object.x, object.y - 10);
-
-            stroke(0, 255, 0);
-            line(object.x, object.y, object.x + object.width, object.y);
-            line(object.x, object.y, object.x, object.y + object.height);
-            line(object.x, object.y + object.height, object.x + object.width, object.y + object.height);
-            line(object.x + object.width, object.y, object.x + object.width, object.y + object.height);
-
-            stroke(0,0,0);
-        });
-    });
 }
 
+function draw() {
+
+    objects.forEach( object => {
+        text(object.label, object.x, object.y - 10);
+
+        stroke(0, 255, 0);
+        line(object.x, object.y, object.x + object.width, object.y);
+        line(object.x, object.y, object.x, object.y + object.height);
+        line(object.x, object.y + object.height, object.x + object.width, object.y + object.height);
+        line(object.x + object.width, object.y, object.x + object.width, object.y + object.height);
+
+        stroke(0,0,0);
+    });
+}
