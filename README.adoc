@@ -32,13 +32,20 @@ when to start recording and stop after a predefined amount of time passed.
 
 ## 🏆 Features:
 
-* super simple setup
-* combine any hardware with this software.
-* lightweight and fast.
-* optimized amount of video data.
-* Machine Learning used to detect certain targets.
-* predefine intervals to control data produced by the camera.
-* very simple database structure.
+  
+⭐ super simple setup.
+
+⭐ combine any hardware with this software.
+
+⭐ lightweight and fast.
+
+⭐ optimized amount of video data.
+
+⭐ Machine Learning used to detect certain targets.
+
+⭐ predefine intervals to control data produced by the camera.
+
+⭐ very simple database structure.
 
 ## ✎ Example Data from the Database:
 
