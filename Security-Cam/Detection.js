@@ -13,4 +13,8 @@ class Detection {
     getDate() {
         return this.date;
     }
+
+    getDateAsObject() {
+        return this.dateObject;
+    }
 }
