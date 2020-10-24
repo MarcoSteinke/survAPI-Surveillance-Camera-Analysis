@@ -10,6 +10,10 @@ function preload() {
     detector = ml5.objectDetector('cocossd', modelLoaded);
 }
 
+function timeBetweenInSeconds(date, anotherDate) {
+    return Math.abs(date / 1000 - anotherDate / 1000);
+}
+
 function modelLoaded() {
     document.querySelector("#state").className = "loaded";
     document.querySelector("#state").innerHTML = "Model loaded.";
