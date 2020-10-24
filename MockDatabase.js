@@ -3,11 +3,12 @@ class MockDatabase {
     constructor() {
         this.db = [];
         this.lastDetection = Date.now();
+        this.intervalDuration = 10;
     }
 
     saveDetection(detection) {
 
-        if(detection.getDate() / 1000 - this.lastDetection / 1000 < 10) {
+        if(detection.getDate() / 1000 - this.lastDetection / 1000 < this.intervalDuration) {
             console.log("too short");
             return;
         }
