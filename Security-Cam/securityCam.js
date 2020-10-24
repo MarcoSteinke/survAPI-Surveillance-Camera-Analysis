@@ -29,6 +29,10 @@ function detect() {
     detector.detect(video, (error, result) => {
         objects = result;
     });
+
+    if(timeBetweenInSeconds(Date.now(), DATABASE.lastDetection) > 10) {
+        DATABASE.saveDetection(new Detection(DATABASE.db.length + 1, objects));
+    }
 }
 
 function label() {

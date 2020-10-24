@@ -1,7 +1,8 @@
 class Detection {
 
-    constructor(id) {
+    constructor(id, objects) {
         this.id = id;
+        this.objects = objects;
         this.date = Date.now();
         this.dateObject = new Date();
     }
