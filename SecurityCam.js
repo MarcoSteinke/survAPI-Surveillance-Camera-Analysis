@@ -1,8 +1,16 @@
+/* * * * * * * * * * * * * * * * * **/
+/* required variables DO NOT CHANGE */
 let video;
 let detector;
 let objects = [];
 
+/* * * * * * * * * * * * * * * * * **/
+
+/* user oriented variables CHANGE   */
 const TARGET = "person";
+DATABASE.intervalDuration = 10;
+
+/* * * * * * * * * * * * * * * * * **/
 
 // prepare the setup of camera and ml5 Object Detection
 function preload() {
