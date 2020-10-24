@@ -7,8 +7,9 @@ let objects = [];
 /* * * * * * * * * * * * * * * * * **/
 
 /* user oriented variables CHANGE   */
-// if TARGET = "" all objects will be detected.
-let TARGET = "person";
+// fill targets with labels to detect and store them
+// or leave it empty to detect and store everything.
+let targets = [];
 DATABASE.intervalDuration = 10;
 
 /* * * * * * * * * * * * * * * * * **/
@@ -38,17 +39,19 @@ function setup() {
 
 }
 
-function collectObjectsByLabel(objectCollection, label) {
+function collectObjectsByTargets(objectCollection) {
 
     let result = [];
 
     objects.forEach( object => {
 
-        // if the object is from type "TARGET" mark and label it
-        if(object.label == label) {
-            result.push(object);
-        }
+        // if the object is included in targets store it
+        targets.forEach(target => {
 
+            if(object.label == target) {
+                result.push(object);
+            }
+        });
     });
 
     return result;
@@ -65,11 +68,11 @@ function detect() {
     // if 10 seconds have passed and there are any objects, store them.
     if(timeBetweenInSeconds(Date.now(), DATABASE.lastDetection) > DATABASE.intervalDuration) {
 
-        if(TARGET != "") {
+        if(targets.length > 0) {
 
             DATABASE.saveDetection(new Detection(
                 DATABASE.db.length + 1, 
-                collectObjectsByLabel(objects, TARGET)
+                collectObjectsByTargets(objects)
             ));
             
         } else {
@@ -82,13 +85,24 @@ function detect() {
     }
 }
 
+function isTarget(label) {
+    
+    for(let i = 0; i < targets.length; i++) {
+        if(label == targets[i]) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 // method to label and mark all detections
 function label() {
     if(objects && objects.length > 0) {
         objects.forEach( object => {
 
             // if the object is from type "TARGET" mark and label it
-            if(object.label == TARGET && TARGET != "") {
+            if(isTarget(object.label) && targets.length > 0) {
                 text(object.label, object.x, object.y - 10);
     
                 stroke(0, 255, 0);
@@ -98,7 +112,7 @@ function label() {
                 line(object.x + object.width, object.y, object.x + object.width, object.y + object.height);
         
                 stroke(0,0,0);
-            } else if(TARGET == "") {
+            } else if(targets.length == 0) {
                 text(object.label, object.x, object.y - 10);
     
                 stroke(0, 255, 0);
