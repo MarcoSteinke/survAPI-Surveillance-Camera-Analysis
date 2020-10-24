@@ -7,7 +7,8 @@ let objects = [];
 /* * * * * * * * * * * * * * * * * **/
 
 /* user oriented variables CHANGE   */
-const TARGET = "person";
+// if TARGET = "" all objects will be detected.
+let TARGET = "person";
 DATABASE.intervalDuration = 10;
 
 /* * * * * * * * * * * * * * * * * **/
@@ -64,10 +65,19 @@ function detect() {
     // if 10 seconds have passed and there are any objects, store them.
     if(timeBetweenInSeconds(Date.now(), DATABASE.lastDetection) > DATABASE.intervalDuration) {
 
-        DATABASE.saveDetection(new Detection(
-            DATABASE.db.length + 1, 
-            collectObjectsByLabel(objects, TARGET)
-        ));
+        if(TARGET != "") {
+
+            DATABASE.saveDetection(new Detection(
+                DATABASE.db.length + 1, 
+                collectObjectsByLabel(objects, TARGET)
+            ));
+            
+        } else {
+            DATABASE.saveDetection(new Detection(
+                DATABASE.db.length + 1,
+                objects
+            ));
+        }
         
     }
 }
@@ -78,7 +88,17 @@ function label() {
         objects.forEach( object => {
 
             // if the object is from type "TARGET" mark and label it
-            if(object.label == TARGET) {
+            if(object.label == TARGET && TARGET != "") {
+                text(object.label, object.x, object.y - 10);
+    
+                stroke(0, 255, 0);
+                line(object.x, object.y, object.x + object.width, object.y);
+                line(object.x, object.y, object.x, object.y + object.height);
+                line(object.x, object.y + object.height, object.x + object.width, object.y + object.height);
+                line(object.x + object.width, object.y, object.x + object.width, object.y + object.height);
+        
+                stroke(0,0,0);
+            } else if(TARGET == "") {
                 text(object.label, object.x, object.y - 10);
     
                 stroke(0, 255, 0);
