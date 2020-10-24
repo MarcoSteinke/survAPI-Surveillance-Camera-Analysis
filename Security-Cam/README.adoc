@@ -30,6 +30,16 @@ when to start recording and stop after a predefined amount of time passed.
 * detection of persons is a standard problem of Machine Learning and already has a very high precision
 * destroy video material in which nothing happens, you will only store critical/important moments
 
+## 🏆 Features:
+
+* super simple setup
+* combine any hardware with this software.
+* lightweight and fast.
+* optimized amount of video data.
+* Machine Learning used to detect certain targets.
+* predefine intervals to control data produced by the camera.
+* very simple database structure.
+
 ## ✎ Example Data from the Database:
 
 #### 1. Collection of `Detection`'s
