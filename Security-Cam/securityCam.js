@@ -29,6 +29,22 @@ function setup() {
 
 }
 
+function collectObjectsByLabel(objectCollection, label) {
+
+    let result = [];
+
+    objects.forEach( object => {
+
+        // if the object is from type "TARGET" mark and label it
+        if(object.label == label) {
+            result.push(object);
+        }
+
+    });
+
+    return result;
+}
+
 // try to detect any objects in the canvas
 function detect() {
 
@@ -39,7 +55,12 @@ function detect() {
 
     // if 10 seconds have passed and there are any objects, store them.
     if(timeBetweenInSeconds(Date.now(), DATABASE.lastDetection) > 10) {
-        DATABASE.saveDetection(new Detection(DATABASE.db.length + 1, objects));
+
+        DATABASE.saveDetection(new Detection(
+            DATABASE.db.length + 1, 
+            collectObjectsByLabel(objects, TARGET)
+        ));
+        
     }
 }
 
