@@ -1,0 +1,31 @@
+# Security Cam
+
+## Introduction:
+
+This implementation demonstrates a Security-Camera Software which was written in javascript
+and uses `cocossd` offered by `ml5` to detect objects.
+
+## Problem:
+
+A business needs a security camera, but is low on server capacity. Thatswhy the business
+can not store videos 24/7.
+
+## Solution:
+
+Using Machine Learning, we can tell the camera when it has objects in view and use a lightweight
+backend to store the timestamps and also the type of objects which where detected. 
+
+#### Classification:
+After detection, the software later classifies them as certain targets. 
+
+#### Persistence
+
+If the classified object is one of the targets, it will be persisted in the database
+by giving information on its type and also adding a timestamp and date. Now we know
+when to start recording and stop after a predefined amount of time passed.
+
+# Improvements over conventional Security Cameras:
+
+* installation is very easy and very customizable due to Open Source Technology
+* detection of persons is a standard problem of Machine Learning and already has a very high precision
+* destroy video material in which nothing happens, you will only store critical/important moments
