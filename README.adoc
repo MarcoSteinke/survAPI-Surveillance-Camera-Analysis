@@ -55,6 +55,7 @@ when to start recording and stop after a predefined amount of time passed.
 * click https://www.bestofcode.net/Applications/Security-Camera[ℹ here] to open the demo in your web browser.
 
 ⚠️ make sure your webcam is allowed.
+
 ⚠️ if "model loading" does not change, please RELOAD (F5)
 
 * open the developer console in your browser (F12 Chrome/Chromium, CTRL+SHIFT+S Firefox).
