@@ -36,6 +36,19 @@ class MockDatabase {
 
         }
     }
+
+    getDetectionById(detectionId) {
+        let detection;
+        
+        this.db.forEach(storedDetection => {
+
+            if(storedDetection.getId() == detectionId) {
+                detection = storedDetection;
+            }
+        });
+
+        return (detection != null) ? detection : new Detection(-1, null);
+    }
 }
 
 const DATABASE = new MockDatabase();
