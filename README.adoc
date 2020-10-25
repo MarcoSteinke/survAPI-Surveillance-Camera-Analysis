@@ -140,3 +140,12 @@ length: 9
 __proto__: Array(0)
 lastDetection: 1603531588867
 ```
+
+
+## 🔧 Compatibility:
+
+* [] IP Security Camera
+* [] Analog MPX Security Camera
+* [] Analog MPX Wireless Security Camera
+* [] Wire-Free Security Camera Wiring
+* [] Wi-Fi Security Camera Wiring
