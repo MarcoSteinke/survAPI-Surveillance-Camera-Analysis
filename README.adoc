@@ -150,6 +150,16 @@ lastDetection: 1603531588867
 * [ ] Wire-Free Security Camera Wiring
 * [x] Wi-Fi Security Camera Wiring
 
+#### Problem:
+
+This security software has to become a module in security networks which is located between the actual video
+input device and the DVR if the video input device is not wireless or NVR if the video input device is wireless.
+
+
+#### Example Network:
+
+image::https://www.lorextechnology.com/images/articles/content/HowToInstall/v2/images/Installation-diagrams_IP-G.png[width=400]
+
 ## 🌐 Useful Links
 
 * https://www.lorextechnology.com/articles/how-to-install[How to Install Security Cameras]
