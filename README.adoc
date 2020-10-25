@@ -165,6 +165,9 @@ image::https://www.lorextechnology.com/images/articles/content/HowToInstall/v2/i
 In this system of an IP Security Camera you will find a cable which connects the NVR and the video input device by 
 using power-over-ethernet (POE) technology to https://www.lorextechnology.com/articles/how-to-install["provide both power and video transmission"].
 
+This setup leaves no space for an external software which directly controls the video input stream. This problem is
+architectural and has to be solved by this software to achieve the highest possible compatibility.
+
 ## 🌐 Useful Links
 
 * https://www.lorextechnology.com/articles/how-to-install[How to Install Security Cameras]
