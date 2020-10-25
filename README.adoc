@@ -174,3 +174,6 @@ architectural and has to be solved by this software to achieve the highest possi
 * https://www.fortinet.com/content/dam/fortinet/assets/white-papers/wp-ip-surveillance-camera.pdf[Fortinet about surveillance]
 * https://de.wikipedia.org/wiki/Netzwerkkamera[Network Cameras]
 * https://de.wikipedia.org/wiki/Video%C3%BCberwachungsanlage[Video Surveillance System]
+* https://kintronics.com/resources/faqs-ip-camera-systems/#2[Frequently Asked Questions or FAQs about IP Camera Systems]
+* https://richmondalarm.com/security-tips/nvr-dvr-pros-cons[NVR vs DVR: Pros and Cons]
+* https://en.wikipedia.org/wiki/Network_video_recorder[Network Video Recorder]
