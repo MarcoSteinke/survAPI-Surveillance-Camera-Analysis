@@ -184,6 +184,13 @@ remove unimportant sequences.
 More solutions have to come, but at the moment there is no idea to manipulate the video input stream between the 
 video input device and the DVR/NVR, which would be the ultimate use-case for this software.
 
+## ☁️ Planned Features:
+
+* [ ] cloud support
+* [ ] support of various sensors
+* [ ] UI to manage connected devices / settings
+* [ ] server implementation to offer a central responsibility for persistence (server 1:n cameras nets)
+
 ## 🌐 Useful Links
 
 * https://www.lorextechnology.com/articles/how-to-install[How to Install Security Cameras]
