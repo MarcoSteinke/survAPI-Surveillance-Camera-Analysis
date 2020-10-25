@@ -158,7 +158,12 @@ input device and the DVR if the video input device is not wireless or NVR if the
 
 #### Example Network:
 
-image::https://www.lorextechnology.com/images/articles/content/HowToInstall/v2/images/Installation-diagrams_IP-G.png[width=400]
+image::https://www.lorextechnology.com/images/articles/content/HowToInstall/v2/images/Installation-diagrams_IP-G.png[width=600]
+
+(image redirects to original source)
+
+In this system of an IP Security Camera you will find a cable which connects the NVR and the video input device by 
+using power-over-ethernet (POE) technology to https://www.lorextechnology.com/articles/how-to-install["provide both power and video transmission"].
 
 ## 🌐 Useful Links
 
