@@ -177,3 +177,11 @@ architectural and has to be solved by this software to achieve the highest possi
 * https://kintronics.com/resources/faqs-ip-camera-systems/#2[Frequently Asked Questions or FAQs about IP Camera Systems]
 * https://richmondalarm.com/security-tips/nvr-dvr-pros-cons[NVR vs DVR: Pros and Cons]
 * https://en.wikipedia.org/wiki/Network_video_recorder[Network Video Recorder]
+
+## ⚖️ License
+
+#### MIT License
+
+#### Copyright (c) 2020 Marco Steinke
+
+You will find the License https://github.com/MarcoSteinke/Security-Cam/blob/main/LICENSE[here]
