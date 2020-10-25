@@ -156,17 +156,33 @@ This security software has to become a module in security networks which is loca
 input device and the DVR if the video input device is not wireless or NVR if the video input device is wireless.
 
 
-#### Example Network:
+#### Example Network (IP Security Camera):
 
 image::https://www.lorextechnology.com/images/articles/content/HowToInstall/v2/images/Installation-diagrams_IP-G.png[width=600]
-
-(image redirects to original source)
 
 In this system of an IP Security Camera you will find a cable which connects the NVR and the video input device by 
 using power-over-ethernet (POE) technology to https://www.lorextechnology.com/articles/how-to-install["provide both power and video transmission"].
 
 This setup leaves no space for an external software which directly controls the video input stream. This problem is
 architectural and has to be solved by this software to achieve the highest possible compatibility.
+
+#### Solution:
+
+* 1. Backwards Integration:
+
+When using the Backwards Integration, the software should be run on a server which is directly connected to the
+DVR/NVR and will rewatch the video material recorded, filter unimportant video information and redirect it
+either to the DVR/NVR or to the server to reduce the amount of data saved.
+
+* 2. Automated Video Analysis:
+
+Using this method, the software is run on a server just as in the previous example. The software will then 
+rewatch the video information received from the DVR/NVR and collect timestamps which flag video intervals in which
+target objects could be detected. You can then either keep your videos as they are or use the time stamps to
+remove unimportant sequences.
+
+More solutions have to come, but at the moment there is no idea to manipulate the video input stream between the 
+video input device and the DVR/NVR, which would be the ultimate use-case for this software.
 
 ## 🌐 Useful Links
 
