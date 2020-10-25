@@ -39,7 +39,7 @@ class MockDatabase {
 
     getDetectionById(detectionId) {
         let detection;
-        
+
         this.db.forEach(storedDetection => {
 
             if(storedDetection.getId() == detectionId) {
@@ -48,6 +48,18 @@ class MockDatabase {
         });
 
         return (detection != null) ? detection : new Detection(-1, null);
+    }
+
+    getDetectionsByDate(date) {
+        let results = [];
+
+        db.forEach(detection => {
+            if(detection.dateObject.equals(date)) {
+                results.push(detection);
+            }
+        });
+
+        return results;
     }
 }
 
