@@ -5,10 +5,10 @@ class DetectionDate extends Date {
     }
 
     equals(anotherDate) {
-        return this.toString() == anotherDate.toString();
+        return this.getValue() == anotherDate.getValue();
     }
 
-    toString() {
+    getValue() {
         return [this.getDate(), this.getMonth(), this.getFullYear()].join('.');
     }
 }
