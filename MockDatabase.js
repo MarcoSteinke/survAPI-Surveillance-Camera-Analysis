@@ -53,7 +53,7 @@ class MockDatabase {
     getDetectionsByDate(date) {
         let results = [];
 
-        db.forEach(detection => {
+        this.db.forEach(detection => {
             if(detection.dateObject.equals(date)) {
                 results.push(detection);
             }
