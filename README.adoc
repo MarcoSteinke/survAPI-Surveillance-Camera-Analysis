@@ -149,3 +149,10 @@ lastDetection: 1603531588867
 * [] Analog MPX Wireless Security Camera
 * [] Wire-Free Security Camera Wiring
 * [] Wi-Fi Security Camera Wiring
+
+## 🌐 Useful Links
+
+* https://www.lorextechnology.com/articles/how-to-install[How to Install Security Cameras]
+* https://www.fortinet.com/content/dam/fortinet/assets/white-papers/wp-ip-surveillance-camera.pdf[Fortinet about surveillance]
+* https://de.wikipedia.org/wiki/Netzwerkkamera[Network Cameras]
+* https://de.wikipedia.org/wiki/Video%C3%BCberwachungsanlage[Video Surveillance System]
