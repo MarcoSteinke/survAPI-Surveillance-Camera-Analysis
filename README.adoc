@@ -34,6 +34,7 @@ when to start recording and stop after a predefined amount of time passed.
 
 ## 🏆 Features:
 
+⭐ advance your security by getting additional information from your camera.
   
 ⭐ super simple setup.
 
