@@ -53,7 +53,10 @@ when to start recording and stop after a predefined amount of time passed.
 ## ℹ️ Demo:
 
 * click https://www.bestofcode.net/Applications/Security-Camera[ℹ here] to open the demo in your web browser.
-* make sure your webcam is allowed. (if "model loading" does not change, please RELOAD (F5) )
+
+⚠️ make sure your webcam is allowed.
+⚠️ if "model loading" does not change, please RELOAD (F5)
+
 * open the developer console in your browser (F12 Chrome/Chromium, CTRL+SHIFT+S Firefox).
 * type for example `DATABASE` and hit enter to inspect the database instance.
 * type `DATABASE.db` and hit enter to inspect the content of the database.
