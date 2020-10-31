@@ -65,7 +65,7 @@ function detect() {
         objects = result;
     });
 
-    // if 10 seconds have passed and there are any objects, store them.
+    // if the predefined interval of seconds has passed and there are any objects, store them.
     if(timeBetweenInSeconds(Date.now(), DATABASE.lastDetection) > DATABASE.intervalDuration) {
 
         if(targets.length > 0) {
