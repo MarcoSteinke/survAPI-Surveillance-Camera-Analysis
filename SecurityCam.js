@@ -43,17 +43,6 @@ function collectObjectsByTargets(objectCollection) {
 
     let result = [];
 
-    /*objects.forEach( object => {
-
-        // if the object is included in targets store it
-        targets.forEach(target => {
-
-            if(object.label == target) {
-                result.push(object);
-            }
-        });
-    });*/
-
     objects.filter(object => targets.includes(object.label))
            .map(targetedObject => result.push(targetedObject));
 
