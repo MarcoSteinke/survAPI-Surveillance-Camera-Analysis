@@ -86,14 +86,8 @@ function detect() {
 }
 
 function isTarget(label) {
-    
-    for(let i = 0; i < targets.length; i++) {
-        if(label == targets[i]) {
-            return true;
-        }
-    }
 
-    return false;
+    return targets.filter(target => target == label).length > 0;
 }
 
 // method to label and mark all detections
