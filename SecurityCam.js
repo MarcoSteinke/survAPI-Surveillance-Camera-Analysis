@@ -102,20 +102,12 @@ function label() {
                 stroke(0, 255, 0);
                 noFill();
                 rect(object.x, object.y, object.width, object.height);
-                /*line(object.x, object.y, object.x + object.width, object.y);
-                line(object.x, object.y, object.x, object.y + object.height);
-                line(object.x, object.y + object.height, object.x + object.width, object.y + object.height);
-                line(object.x + object.width, object.y, object.x + object.width, object.y + object.height);*/
-        
                 stroke(0,0,0);
+                
             } else if(targets.length == 0) {
                 text(object.label, object.x, object.y - 10);
     
                 stroke(0, 255, 0);
-                /*line(object.x, object.y, object.x + object.width, object.y);
-                line(object.x, object.y, object.x, object.y + object.height);
-                line(object.x, object.y + object.height, object.x + object.width, object.y + object.height);
-                line(object.x + object.width, object.y, object.x + object.width, object.y + object.height);*/
                 noFill();
                 rect(object.x, object.y, object.width, object.height);
                 stroke(0,0,0);
