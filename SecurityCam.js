@@ -43,7 +43,7 @@ function collectObjectsByTargets(objectCollection) {
 
     let result = [];
 
-    objects.forEach( object => {
+    /*objects.forEach( object => {
 
         // if the object is included in targets store it
         targets.forEach(target => {
@@ -52,7 +52,10 @@ function collectObjectsByTargets(objectCollection) {
                 result.push(object);
             }
         });
-    });
+    });*/
+
+    objects.filter(object => targets.includes(object.label))
+           .map(targetedObject => result.push(targetedObject));
 
     return result;
 }
@@ -103,7 +106,7 @@ function label() {
                 noFill();
                 rect(object.x, object.y, object.width, object.height);
                 stroke(0,0,0);
-                
+
             } else if(targets.length == 0) {
                 text(object.label, object.x, object.y - 10);
     
