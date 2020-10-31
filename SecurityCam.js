@@ -41,12 +41,8 @@ function setup() {
 
 function collectObjectsByTargets(objectCollection) {
 
-    let result = [];
-
-    objects.filter(object => targets.includes(object.label))
-           .map(targetedObject => result.push(targetedObject));
-
-    return result;
+    return objects.filter(object => targets.includes(object.label))
+                  .map(targetedObject => result.push(targetedObject));
 }
 
 // try to detect any objects in the canvas
