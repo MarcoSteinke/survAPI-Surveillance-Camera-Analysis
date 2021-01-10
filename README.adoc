@@ -120,25 +120,25 @@ __proto__: Object
 
 ```javascript
 8: Detection
-date: 1603531588867
-dateObject: Sat Oct 24 2020 11:26:28 GMT+0200 (Mitteleuropäische Sommerzeit) {}
-id: 9
-objects: Array(1)
-0:
-confidence: 0.8875717520713806
-height: 477.72010803222656
-label: "person"
-normalized: {x: 0.006499499082565308, y: 0.002416372299194336, width: 0.9883514940738678, height: 0.9952502250671387}
-width: 632.5449562072754
-x: 4.159679412841797
-y: 1.1598587036132812
-__proto__: Object
-length: 1
-__proto__: Array(0)
-__proto__: Object
-length: 9
-__proto__: Array(0)
-lastDetection: 1603531588867
+  date: 1603531588867
+  dateObject: Sat Oct 24 2020 11:26:28 GMT+0200 (Mitteleuropäische Sommerzeit) {}
+  id: 9
+  objects: Array(1)
+  0:
+  confidence: 0.8875717520713806
+  height: 477.72010803222656
+  label: "person"
+  normalized: {x: 0.006499499082565308, y: 0.002416372299194336, width: 0.9883514940738678, height: 0.9952502250671387}
+  width: 632.5449562072754
+  x: 4.159679412841797
+  y: 1.1598587036132812
+  __proto__: Object
+  length: 1
+  __proto__: Array(0)
+  __proto__: Object
+  length: 9
+  __proto__: Array(0)
+  lastDetection: 1603531588867
 ```
 
 
