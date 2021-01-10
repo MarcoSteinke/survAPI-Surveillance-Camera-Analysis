@@ -74,46 +74,46 @@ db: Array(9)
 0: Detection {id: 1, objects: Array(1), date: 1603531508193, dateObject: Sat Oct 24 2020 11:25:08 GMT+0200 (Mitteleuropäische Sommerzeit)}
 1: Detection {id: 2, objects: Array(1), date: 1603531518319, dateObject: Sat Oct 24 2020 11:25:18 GMT+0200 (Mitteleuropäische Sommerzeit)}
 2: Detection
-date: 1603531528418
-dateObject: Sat Oct 24 2020 11:25:28 GMT+0200 (Mitteleuropäische Sommerzeit) {}
-id: 3
-objects: Array(1)
-0: {label: "person", confidence: 0.7510808706283569, x: 7.6421356201171875, y: 2.8800487518310547, width: 626.8524932861328, …}
-length: 1
-__proto__: Array(0)
-__proto__: Object
+  date: 1603531528418
+  dateObject: Sat Oct 24 2020 11:25:28 GMT+0200 (Mitteleuropäische Sommerzeit) {}
+  id: 3
+  objects: Array(1)
+  0: {label: "person", confidence: 0.7510808706283569, x: 7.6421356201171875, y: 2.8800487518310547, width: 626.8524932861328, …}
+  length: 1
+  __proto__: Array(0)
+  __proto__: Object
 3: Detection {id: 4, objects: Array(0), date: 1603531538488, dateObject: Sat Oct 24 2020 11:25:38 GMT+0200 (Mitteleuropäische Sommerzeit)}
 4: Detection {id: 5, objects: Array(1), date: 1603531548599, dateObject: Sat Oct 24 2020 11:25:48 GMT+0200 (Mitteleuropäische Sommerzeit)}
 5: Detection {id: 6, objects: Array(1), date: 1603531558734, dateObject: Sat Oct 24 2020 11:25:58 GMT+0200 (Mitteleuropäische Sommerzeit)}
 6: Detection
-date: 1603531568792
-dateObject: Sat Oct 24 2020 11:26:08 GMT+0200 (Mitteleuropäische Sommerzeit) {}
-id: 7
-objects: Array(0)
-length: 0
-__proto__: Array(0)
-__proto__: Object
+  date: 1603531568792
+  dateObject: Sat Oct 24 2020 11:26:08 GMT+0200 (Mitteleuropäische Sommerzeit) {}
+  id: 7
+  objects: Array(0)
+  length: 0
+  __proto__: Array(0)
+  __proto__: Object
 7: Detection
-date: 1603531578818
-dateObject: Sat Oct 24 2020 11:26:18 GMT+0200 (Mitteleuropäische Sommerzeit) {}
-id: 8
-objects: Array(0)
-length: 0
-__proto__: Array(0)
-__proto__: Object
+  date: 1603531578818
+  dateObject: Sat Oct 24 2020 11:26:18 GMT+0200 (Mitteleuropäische Sommerzeit) {}
+  id: 8
+  objects: Array(0)
+  length: 0
+  __proto__: Array(0)
+  __proto__: Object
 8: Detection
-date: 1603531588867
-dateObject: Sat Oct 24 2020 11:26:28 GMT+0200 (Mitteleuropäische Sommerzeit) {}
-id: 9
-objects: Array(1)
-0: {label: "person", confidence: 0.8875717520713806, x: 4.159679412841797, y: 1.1598587036132812, width: 632.5449562072754, …}
-length: 1
-__proto__: Array(0)
-__proto__: Object
-length: 9
-__proto__: Array(0)
-lastDetection: 1603531588867
-__proto__: Object
+  date: 1603531588867
+  dateObject: Sat Oct 24 2020 11:26:28 GMT+0200 (Mitteleuropäische Sommerzeit) {}
+  id: 9
+  objects: Array(1)
+    0: {label: "person", confidence: 0.8875717520713806, x: 4.159679412841797, y: 1.1598587036132812, width: 632.5449562072754, …}
+    length: 1
+  __proto__: Array(0)
+  __proto__: Object
+  length: 9
+  __proto__: Array(0)
+  lastDetection: 1603531588867
+  __proto__: Object
 ```
 
 #### 2. A single Detection
@@ -124,14 +124,14 @@ __proto__: Object
   dateObject: Sat Oct 24 2020 11:26:28 GMT+0200 (Mitteleuropäische Sommerzeit) {}
   id: 9
   objects: Array(1)
-  0:
-  confidence: 0.8875717520713806
-  height: 477.72010803222656
-  label: "person"
-  normalized: {x: 0.006499499082565308, y: 0.002416372299194336, width: 0.9883514940738678, height: 0.9952502250671387}
-  width: 632.5449562072754
-  x: 4.159679412841797
-  y: 1.1598587036132812
+    0:
+    confidence: 0.8875717520713806
+    height: 477.72010803222656
+    label: "person"
+    normalized: {x: 0.006499499082565308, y: 0.002416372299194336, width: 0.9883514940738678, height: 0.9952502250671387}
+    width: 632.5449562072754
+    x: 4.159679412841797
+    y: 1.1598587036132812
   __proto__: Object
   length: 1
   __proto__: Array(0)
