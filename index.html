@@ -17,17 +17,45 @@
   </head>
   <style>
       .col {
+          margin: 24px;
           text-align: center;
       }
+
+      tr:nth-child(even) {
+          background: gray !important;
+      }
   </style>
-  <body>
+  <body style="background-color: #f1f1f1; margin-top: 200px !important;">
+    <h2 style="margin: 20px;">Surveillance:</h2>
     <div class="row">
       <div class="col">
         <div id="state">Model loading...</div>
       </div>
       <div class="col">
-          Some text
+          <table class="table table-light">
+              <thead class="">
+                  <tr>
+                      <th>Latest Detections:</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Some Detection</td>
+                  </tr>
+                  <tr>
+                    <td>Another Detection</td>
+                </tr>
+                
+              </tbody>
+          </table>
       </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col">
+                <h2>More Cameras:</h2>
+            </div>
+        </div>
     </div>
     <script src="DetectionDate.js"></script>
     <script src="MockDatabase.js"></script>
