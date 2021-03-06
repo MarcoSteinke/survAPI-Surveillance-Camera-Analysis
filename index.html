@@ -21,23 +21,39 @@
           text-align: center;
       }
 
+      tr {
+        background-color: white;
+      }
+
+      :is(thead) tr {
+        background-color: #f1f1f1;
+      }
+
       tr:nth-child(even) {
-          background: gray !important;
+          background: rgb(230,230,230) !important;
       }
   </style>
   <body style="background-color: #f1f1f1; text-align: center;">
+    <div class="container">
+      <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="#">Surveillance Dashboard</a>
+            <a class="nav-item nav-link" href="#">Start</a>
+        </div>
+    </nav>
     <h2 style="margin: 20px;">Surveillance:</h2>
     <div class="row">
       <div class="col">
-        <div id="state">Model loading...</div>
+        <div id="state" style="text-align: center;"><h3>Current camera:</h3></div>
       </div>
       <div class="col">
-          <table class="table table-light">
-              <thead class="">
-                  <tr>
+        <h3>Latest Detections:</h3>
+          <table class="table">
+              <!--<thead class="">
+                  <tr class>
                       <th>Latest Detections:</th>
                   </tr>
-              </thead>
+              </thead>-->
               <tbody>
                   <tr>
                       <td>Some Detection</td>
@@ -84,6 +100,8 @@
             </div>
         </div>
     </div>
+    </div>
+    
     <script src="DetectionDate.js"></script>
     <script src="MockDatabase.js"></script>
     <script src="Detection.js"></script>

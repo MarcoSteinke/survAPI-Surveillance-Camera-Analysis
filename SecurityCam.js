@@ -28,14 +28,22 @@ function timeBetweenInSeconds(date, anotherDate) {
 
 // update the header if the model is loaded
 function modelLoaded() {
-    document.querySelector("#state").className = "loaded";
-    document.querySelector("#state").innerHTML = "Model loaded.";
+    //document.querySelector("#state").className = "loaded";
+    //document.querySelector("#state").innerHTML = "Model loaded.";
+    console.log("model loaded");
 }
 
 // setup the canvas and display the video
 function setup() {
-    createCanvas(1254, 835);
+    createCanvas(800, 835);
     image(video, 0, 0);
+    let defaultCam = document.querySelector("canvas");
+    defaultCam.remove();
+    document.querySelector("#state").appendChild(defaultCam);
+    defaultCam = document.querySelector("canvas");
+    defaultCam.style.width = "max-content";
+    defaultCam.style.height = "auto";
+    defaultCam.style.margin = "auto";
 
 }
 
