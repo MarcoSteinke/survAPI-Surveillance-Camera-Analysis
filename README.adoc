@@ -169,6 +169,10 @@ x: 133.67712020874023
 y: 16.696457862854004
 ```
 
+## 🏛️ Architecture:
+
+image::add[width=600]
+
 
 ## 🔧 Compatibility:
 
