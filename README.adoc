@@ -29,6 +29,7 @@ when to start recording and stop after a predefined amount of time passed.
 ## 💪 Improvements over conventional Security Cameras:
 
 * installation is very easy and very customizable due to Open Source Technology
+* a clean webinterface makes your cameras accessible and configurable
 * detection of persons is a standard problem of Machine Learning and already has a very high precision
 * destroy video material in which nothing happens, you will only store critical/important moments
 
