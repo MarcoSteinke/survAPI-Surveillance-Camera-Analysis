@@ -15,6 +15,12 @@ class Detection {
         return this.date;
     }
 
+    toString() {
+        let resultObjectsString = "";
+        objects.forEach(object => resultObjectsString += [object.label, object.confidence].join(', '));
+        return `id=${this.id}, objects=${resultObjectsString}, date=${this.dateObject.getValue()}`;
+    }
+
     getDateAsObject() {
         return this.dateObject;
     }
