@@ -145,6 +145,30 @@ __proto__: Array(0)
 lastDetection: 1603531588867
 ```
 
+#### 3. A single Detection as JSON
+
+```javascript
+{id: 1, objects: Array(1), date: 1615052099545, dateObject: Sat Mar 06 2021 18:34:59 GMT+0100 (Mitteleuropäische Normalzeit)}
+```
+
+The objects list:
+
+```javascript
+{label: "person", confidence: 0.9367305040359497, x: 133.67712020874023, y: 16.696457862854004, width: 474.5007514...
+```
+
+Where it looks as follows:
+
+```javascript
+confidence: 0.9367305040359497
+height: 458.1805944442749
+label: "person"
+normalized: {x: 0.20887050032615662, y: 0.034784287214279175, width: 0.7414074242115021, height: 0.9545429050922394}
+width: 474.5007514953613
+x: 133.67712020874023
+y: 16.696457862854004
+```
+
 
 ## 🔧 Compatibility:
 
