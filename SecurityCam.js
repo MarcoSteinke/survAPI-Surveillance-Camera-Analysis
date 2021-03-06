@@ -81,7 +81,7 @@ function detect() {
         }
 
         // Only display a predefined amount of detections.
-        if(latestDetections.length > LATEST_DETECTION_DISPLAY_COUNT) {
+        if(latestDetections.length > LatestDetectionRenderer.DISPLAY_COUNT) {
 
             // remove the first entry
             latestDetections.shift();

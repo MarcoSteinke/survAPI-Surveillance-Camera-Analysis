@@ -3,6 +3,8 @@
  */
 class LatestDetectionRenderer {
 
+    static DISPLAY_COUNT = 10;
+
     // Standard method to show latest detections, where the parameter is given by the application.
     static showLatestDetections(latestDetections) {
     
