@@ -109,7 +109,7 @@ function showLatestDetections() {
 
     latestDetections.forEach(
         detection => LATEST_DETECTION_ANCHOR.insertAdjacentHTML("beforeend", 
-            `<tr class=\"detection\">\
+            `<tr class=\"detection\" onclick=\"details(${detection.getId()})\">\
             <td>${detection.getId()}</td>\
             <td>${detection.getObjectLabels()}</td>\
             <td>${detection.getObjectConfidences()}</td>\
