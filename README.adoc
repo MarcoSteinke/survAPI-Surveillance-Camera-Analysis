@@ -38,6 +38,8 @@ when to start recording and stop after a predefined amount of time passed.
   
 ⭐ super simple setup.
 
+⭐ modern dashboard and webpages to access the cameras.
+
 ⭐ combine any hardware with this software.
 
 ⭐ lightweight and fast.
