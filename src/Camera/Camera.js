@@ -6,4 +6,12 @@ class Camera {
         this.description = description;
         this.configuration = configuration;
     }
+
+    getIp() {
+        return this.configuration.ip;
+    }
+
+    getPort() {
+        return this.configuration.port;
+    }
 }

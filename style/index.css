@@ -45,3 +45,10 @@
   body {
     background-color: #f1f1f1; text-align: center;
   }
+
+  .other-camera:hover {
+    -webkit-box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75);
+box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75);
+cursor: pointer;
+  }
