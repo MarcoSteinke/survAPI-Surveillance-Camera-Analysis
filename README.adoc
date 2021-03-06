@@ -5,7 +5,7 @@
 This implementation demonstrates a Security-Camera Software which was written in javascript
 and uses `cocossd` offered by `ml5` to detect objects.
 
-image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/screenshot.png?raw=true[width=400]
+image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/screenshot.png?raw=true[width=800]
 
 ## ❓ Problem:
 
