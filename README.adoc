@@ -171,6 +171,27 @@ y: 16.696457862854004
 
 ## 🏛️ Architecture:
 
+The project will be separated into the subsystems `Camera`, `Surveillance`, `Database`, `Webviews` where each subsystem exactly solves one
+of the given business problems.
+
+#### `Camera`:
+
+The subsystem will fulfill the `HARDWARE`-part in this project. All types of cameras (which you find right below under `Compatibility`) will be connected via this subsystem.
+It defines a domain model which projects the real world properties of cameras into code and offers its configured cameras to all of the other subsystems. All of the input
+will run through this subsystem.
+
+#### `Surveillance`:
+
+The surveillance will process video material received from any video source, configured in the `Camera` subsystem. It makes use of `ML5` and analyses the material
+based on the admins preferences. The analysis results will be persisted in the `Database` subsystem. It usually is not a separate subsystem, but for this project it
+will do best if the database can completely be substituted behind an interface which connects the `Webviews` and the `Surveillance` to it.
+
+#### `Database`:
+
+Use any type of database you want and store all of the analysis results. You can access the persisted data by using the `Webviews` or build your own UI to access it.
+
+
+
 image::https://raw.githubusercontent.com/MarcoSteinke/Security-Cam/main/img/architecture-color.png[width=600]
 
 
@@ -218,6 +239,7 @@ video input device and the DVR/NVR, which would be the ultimate use-case for thi
 
 ## ☁️ Planned Features:
 
+* [ ] SurvAPI, an API which will offer all of the information to the filesystem or to Web requests
 * [ ] cloud support
 * [ ] support of various sensors
 * [ ] UI to manage connected devices / settings
