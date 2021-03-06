@@ -3,6 +3,7 @@
 let video;
 let detector;
 let objects = [];
+let latestDetections = [];
 
 /* * * * * * * * * * * * * * * * * **/
 
@@ -35,14 +36,12 @@ function modelLoaded() {
 
 // setup the canvas and display the video
 function setup() {
-    createCanvas(800, 835);
+    createCanvas(800, 800);
     image(video, 0, 0);
     let defaultCam = document.querySelector("canvas");
     defaultCam.remove();
     document.querySelector("#state").appendChild(defaultCam);
     defaultCam = document.querySelector("canvas");
-    defaultCam.style.width = "max-content";
-    defaultCam.style.height = "auto";
     defaultCam.style.margin = "auto";
 
 }
@@ -70,6 +69,10 @@ function detect() {
                 DATABASE.db.length + 1, 
                 collectObjectsByTargets(objects)
             ));
+
+            console.log(new Detection(
+                DATABASE.db.length, 
+                collectObjectsByTargets(objects)));
             
         } else {
             DATABASE.saveDetection(new Detection(
@@ -77,8 +80,35 @@ function detect() {
                 objects
             ));
         }
+
+        if(latestDetections.length > 5) {
+
+            // remove the first entry
+            latestDetections.reverse().pop();
+
+        }
+
+
+        latestDetections.push(
+            new Detection(
+                DATABASE.db.length, 
+                collectObjectsByTargets(objects)
+            )
+        );
+
+        showLatestDetections()
         
     }
+}
+
+function showLatestDetections() {
+
+    document.querySelectorAll(".detection").forEach(detection => detection.remove());
+    const LATEST_DETECTION_ANCHOR = document.querySelector("#latest");
+
+    latestDetections.forEach(
+        detection => LATEST_DETECTION_ANCHOR.insertAdjacentHTML("beforeend", ["<tr class=\"detection\"><td>", "</td></tr>"].join(detection.toString()))
+    );
 }
 
 function isTarget(label) {
