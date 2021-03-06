@@ -1,5 +1,7 @@
 # 📷 Security Cam
 
+:toc:
+
 ## ⚡ Introduction:
 
 This implementation demonstrates a Security-Camera Software which was written in javascript
@@ -175,6 +177,8 @@ y: 16.696457862854004
 The project will be separated into the subsystems `Camera`, `Surveillance`, `Database`, `Webviews` where each subsystem exactly solves one
 of the given business problems.
 
+To guarantee clean code, this project will profit from `Domain Driven Design` and from `Self Contained System`'s.
+
 #### Camera:
 
 The subsystem will fulfill the `HARDWARE`-part in this project. All types of cameras (which you find right below under `Compatibility`) will be connected via this subsystem.
@@ -250,6 +254,28 @@ video input device and the DVR/NVR, which would be the ultimate use-case for thi
 * [ ] support of various sensors
 * [ ] UI to manage connected devices / settings
 * [ ] server implementation to offer a central responsibility for persistence (server 1:n cameras nets)
+
+## 📖 Dictionary:
+
+[cols="1,1"]
+|===
+|Word
+|Description
+
+|ML5
+|A Machine Learning Framework for javascript, based on TensorFlow and developed by the team of P5
+
+|CocoSSD
+|Object detection model that aims to localize and identify multiple objects in a single image. https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd
+
+|Domain Driven Design (DDD)
+|https://en.wikipedia.org/wiki/Domain-driven_design
+
+|Self Contained System (SCS)
+|https://en.wikipedia.org/wiki/Self-contained_system_(software)
+
+|===
+
 
 ## 🌐 Useful Links
 
