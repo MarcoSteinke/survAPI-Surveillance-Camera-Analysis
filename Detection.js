@@ -26,7 +26,7 @@ class Detection {
     }
 
     getObjectConfidences() {
-        return objects.map(object => object.confidence).join(',');
+        return objects.map(object => object.confidence.toFixed(2)).join(',');
     }
 
     getDateAsObjectAsString() {

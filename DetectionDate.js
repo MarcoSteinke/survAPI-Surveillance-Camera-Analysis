@@ -16,4 +16,8 @@ class DetectionDate extends Date {
     getValue() {
         return this.value;
     }
+
+    getTime() {
+        return this.toLocaleTimeString();
+    }
 }

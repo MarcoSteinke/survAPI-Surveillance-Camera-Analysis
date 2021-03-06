@@ -113,7 +113,7 @@ function showLatestDetections() {
             <td>${detection.getObjectLabels()}</td>\
             <td>${detection.getObjectConfidences()}</td>\
             <td>${detection.dateObject.getValue()}</td>\
-            <td>${detection.getId()}</td>\
+            <td>${detection.dateObject.getTime()}</td>\
             </tr>`)
     );
 }
