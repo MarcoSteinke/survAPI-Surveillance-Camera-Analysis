@@ -276,6 +276,8 @@ video input device and the DVR/NVR, which would be the ultimate use-case for thi
 
 |===
 
+More explanations will be added soon.
+
 
 ## 🌐 Useful Links
 
