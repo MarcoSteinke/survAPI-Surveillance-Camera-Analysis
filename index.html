@@ -14,53 +14,9 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style/index.css">
   </head>
-  <style>
-
-      #state {
-        height: 500px;
-      }
-
-      #cameras>*, #cameras>*>* {
-        margin: 6px;
-        padding: 0;
-      }
-
-      .other-camera {
-      }
-
-      .col {
-          margin: 24px;
-          text-align: center;
-      }
-
-      .col {
-        padding: 0;
-      }
-
-      tr:nth-child(odd) {
-        background-color: white;
-
-      }
-
-      :is(thead) tr {
-        background-color: #f1f1f1;
-      }
-
-      tr:nth-child(even) {
-        background: rgb(230,230,230);
-
-      }
-
-      tr:hover, tr:nth-child(even):hover, tr:nth-child(odd):hover {
-        background-color: aliceblue;
-      }
-
-      tr>*:hover, table:hover, tr>*>*:hover {
-        cursor: pointer;
-      }
-  </style>
-  <body style="background-color: #f1f1f1; text-align: center;">
+  <body>
     <div class="container">
       <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
@@ -70,7 +26,7 @@
     </nav>
     <div class="row">
       <div class="col">
-        <div id="state" style="text-align: center; margin: 0px !important;"><h3>Current camera:</h3></div>
+        <div id="state"><h3>Current camera:</h3></div>
       </div>
       <div class="col-sm">
         <h3 style="margin-top: 24px;">Latest Detections:</h3>

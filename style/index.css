@@ -1,0 +1,47 @@
+#state {
+    height: 500px;
+    text-align: center; margin: 0px !important;
+  }
+
+  #cameras>*, #cameras>*>* {
+    margin: 6px;
+    padding: 0;
+  }
+
+  .other-camera {
+  }
+
+  .col {
+      margin: 24px;
+      text-align: center;
+  }
+
+  .col {
+    padding: 0;
+  }
+
+  tr:nth-child(odd) {
+    background-color: white;
+
+  }
+
+  :is(thead) tr {
+    background-color: #f1f1f1;
+  }
+
+  tr:nth-child(even) {
+    background: rgb(230,230,230);
+
+  }
+
+  tr:hover, tr:nth-child(even):hover, tr:nth-child(odd):hover {
+    background-color: aliceblue;
+  }
+
+  tr>*:hover, table:hover, tr>*>*:hover {
+    cursor: pointer;
+  }
+
+  body {
+    background-color: #f1f1f1; text-align: center;
+  }
