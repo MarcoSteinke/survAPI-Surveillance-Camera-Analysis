@@ -171,7 +171,7 @@ y: 16.696457862854004
 
 ## 🏛️ Architecture:
 
-image::add[width=600]
+image::https://raw.githubusercontent.com/MarcoSteinke/Security-Cam/main/img/architecture-color.png[width=600]
 
 
 ## 🔧 Compatibility:
