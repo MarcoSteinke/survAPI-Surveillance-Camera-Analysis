@@ -72,6 +72,19 @@ when to start recording and stop after a predefined amount of time passed.
 
 INFORMATION: more to follow in the future.
 
+## 🤝 Contribution:
+
+If you want to contribute, you need to `fork` this repository and write clean commits. What do I mean with clean commits?
+
+* Commits should not change different parts of the application, as long as they are not part of a specific problem which the commit tries to solve.
+* Commit messages should always be written using the english language.
+* Each commit message should be less than 50 letters and only describe one aspect.
+* Commits should not be too long. Please do not change 30 files in one commit.
+* There should be a minimum of understanding, what the business problem in this case is.
+* You should be able to keep the architecture and not contribute beginner's code. (I am happy if a beginner contributes, because participating in a project can bring you further, but code should be readable, efficient and follow some principles) 
+
+
+
 ## ✎ Example Data from the Database:
 
 #### 1. Collection of `Detection`'s
