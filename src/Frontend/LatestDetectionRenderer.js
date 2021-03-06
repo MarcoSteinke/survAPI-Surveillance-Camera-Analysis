@@ -1,5 +1,9 @@
+/* This class manages the rendering of latest detections. If you want to change the way they are rendered, you have
+ * to change this class.
+ */
 class LatestDetectionRenderer {
 
+    // Standard method to show latest detections, where the parameter is given by the application.
     static showLatestDetections(latestDetections) {
     
         document.querySelectorAll(".detection").forEach(detection => detection.remove());
