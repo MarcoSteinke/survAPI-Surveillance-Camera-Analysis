@@ -90,6 +90,7 @@ function detect() {
 
 
         latestDetections.push(
+            
             new Detection(
                 DATABASE.db.length, 
                 collectObjectsByTargets(objects)

@@ -1,5 +1,7 @@
 class CameraConfiguration {
 
     //TODO: later
-    constructor()
+    static createIPCamera(ipAdr, port, resolution) {
+        return {ip: ipAdr, port: port, resolution: resolution};
+    }
 }
