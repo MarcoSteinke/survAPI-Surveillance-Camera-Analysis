@@ -13,7 +13,7 @@ class LatestDetectionRenderer {
     
         latestDetections.forEach(
             detection => LATEST_DETECTION_ANCHOR.insertAdjacentHTML("beforeend", 
-                `<tr class=\"detection\" onclick=\"details(${detection.getId()})\">\
+                `<tr class=\"detection\" onclick=\"bootbox.alert(${detection})\">\
                 <td>${detection.getId()}</td>\
                 <td>${detection.getObjectLabels()}</td>\
                 <td>${detection.getObjectConfidences()}</td>\
