@@ -12,6 +12,7 @@ let latestDetections = [];
 // or leave it empty to detect and store everything.
 let targets = [];
 DATABASE.intervalDuration = 3;
+const LATEST_DETECTION_DISPLAY_COUNT = 10;
 
 /* * * * * * * * * * * * * * * * * **/
 
@@ -63,25 +64,24 @@ function detect() {
     // if the predefined interval of seconds has passed and there are any objects, store them.
     if(timeBetweenInSeconds(Date.now(), DATABASE.lastDetection) > DATABASE.intervalDuration) {
 
+        // If there are certain targets defined, only detect them
         if(targets.length > 0) {
 
             DATABASE.saveDetection(new Detection(
                 DATABASE.db.length + 1, 
                 collectObjectsByTargets(objects)
             ));
-
-            console.log(new Detection(
-                DATABASE.db.length, 
-                collectObjectsByTargets(objects)));
             
         } else {
+
             DATABASE.saveDetection(new Detection(
                 DATABASE.db.length + 1,
                 objects
             ));
         }
 
-        if(latestDetections.length > 5) {
+        // Only display a predefined amount of detections.
+        if(latestDetections.length > LATEST_DETECTION_DISPLAY_COUNT) {
 
             // remove the first entry
             latestDetections.shift();
@@ -96,11 +96,12 @@ function detect() {
             )
         );
 
-        showLatestDetections()
+        showLatestDetections();
         
     }
 }
 
+// Method used to update the frontend. Will be moved to another class later on.
 function showLatestDetections() {
 
     document.querySelectorAll(".detection").forEach(detection => detection.remove());
@@ -118,6 +119,7 @@ function showLatestDetections() {
     );
 }
 
+// Simply check if the current label is defined as a target.
 function isTarget(label) {
 
     return targets.filter(target => target == label).length > 0;

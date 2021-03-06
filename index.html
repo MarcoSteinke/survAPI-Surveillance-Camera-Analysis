@@ -25,8 +25,9 @@
         padding: 0;
       }
 
-      tr {
+      tr:nth-child(odd) {
         background-color: white;
+
       }
 
       :is(thead) tr {
@@ -34,7 +35,16 @@
       }
 
       tr:nth-child(even) {
-          background: rgb(230,230,230) !important;
+        background: rgb(230,230,230);
+
+      }
+
+      tr:hover, tr:nth-child(even):hover, tr:nth-child(odd):hover {
+        background-color: aliceblue;
+      }
+
+      tr>*:hover, table:hover, tr>*>*:hover {
+        cursor: pointer;
       }
   </style>
   <body style="background-color: #f1f1f1; text-align: center;">
