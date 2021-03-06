@@ -11,7 +11,7 @@ let latestDetections = [];
 // fill targets with labels to detect and store them
 // or leave it empty to detect and store everything.
 let targets = [];
-DATABASE.intervalDuration = 10;
+DATABASE.intervalDuration = 3;
 
 /* * * * * * * * * * * * * * * * * **/
 
@@ -84,7 +84,7 @@ function detect() {
         if(latestDetections.length > 5) {
 
             // remove the first entry
-            latestDetections.reverse().pop();
+            latestDetections.shift();
 
         }
 
@@ -107,7 +107,14 @@ function showLatestDetections() {
     const LATEST_DETECTION_ANCHOR = document.querySelector("#latest");
 
     latestDetections.forEach(
-        detection => LATEST_DETECTION_ANCHOR.insertAdjacentHTML("beforeend", ["<tr class=\"detection\"><td>", "</td></tr>"].join(detection.toString()))
+        detection => LATEST_DETECTION_ANCHOR.insertAdjacentHTML("beforeend", 
+            `<tr class=\"detection\">\
+            <td>${detection.getId()}</td>\
+            <td>${detection.getObjectLabels()}</td>\
+            <td>${detection.getObjectConfidences()}</td>\
+            <td>${detection.dateObject.getValue()}</td>\
+            <td>${detection.getId()}</td>\
+            </tr>`)
     );
 }
 

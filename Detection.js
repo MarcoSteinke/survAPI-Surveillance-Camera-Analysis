@@ -21,7 +21,15 @@ class Detection {
         return `id=${this.id}, objects=${resultObjectsString}, date=${this.dateObject.getValue()}`;
     }
 
-    getDateAsObject() {
+    getObjectLabels() {
+        return objects.map(object => object.label).join(',');
+    }
+
+    getObjectConfidences() {
+        return objects.map(object => object.confidence).join(',');
+    }
+
+    getDateAsObjectAsString() {
         return this.dateObject;
     }
 

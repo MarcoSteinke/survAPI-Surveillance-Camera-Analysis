@@ -41,19 +41,22 @@
             <a class="nav-item nav-link" href="#">Start</a>
         </div>
     </nav>
-    <h2 style="margin: 20px;">Surveillance:</h2>
     <div class="row">
       <div class="col">
-        <div id="state" style="text-align: center;"><h3>Current camera:</h3></div>
+        <div id="state" style="text-align: center; margin: 0px !important;"><h3>Current camera:</h3></div>
       </div>
-      <div class="col">
-        <h3>Latest Detections:</h3>
+      <div class="col-sm">
+        <h3 style="margin-top: 24px;">Latest Detections:</h3>
           <table class="table">
-              <!--<thead class="">
+              <thead class="">
                   <tr class>
-                      <th>Latest Detections:</th>
+                    <th>ID:</th>
+                    <th>Objects:</th>
+                    <th>Confidences:</th>
+                    <th>Date:</th>
+                    <th>Time:</th>
                   </tr>
-              </thead>-->
+              </thead>
               <tbody id="latest">
               </tbody>
           </table>
