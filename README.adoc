@@ -54,6 +54,8 @@ when to start recording and stop after a predefined amount of time passed.
 
 ## ℹ️ Demo:
 
+⚠️ At the moment the demo may not work correctly in your browser. (`6th March 2021`)
+
 * click https://www.bestofcode.net/Applications/Security-Camera[ℹ here] to open the demo in your web browser.
 
 ⚠️ make sure your webcam is allowed.
