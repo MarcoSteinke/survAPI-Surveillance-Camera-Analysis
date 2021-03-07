@@ -9,7 +9,7 @@ app.use(cors());
 const { Sequelize } = require('sequelize');
 
 // Option 2: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('detections', 'root', 'example', {
+const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
     host: 'localhost',
     dialect: 'mysql'
 });
