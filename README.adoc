@@ -46,6 +46,8 @@ when to start recording and stop after a predefined amount of time passed.
 
 ⭐ combine any hardware with this software.
 
+⭐ SurvAPI: The included surveillance API also offers all of the analysis tool to be called from other frameworks.
+
 ⭐ lightweight and fast.
 
 ⭐ optimized amount of video data.
