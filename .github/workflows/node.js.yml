@@ -3,6 +3,10 @@
 
 name: Node.js CI
 
+defaults:
+  run:
+    working-directory: ./src/server
+    
 on:
   push:
     branches: [ main ]
