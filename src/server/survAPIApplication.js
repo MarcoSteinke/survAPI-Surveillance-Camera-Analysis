@@ -1,10 +1,10 @@
 const express = require('express');
-const app = express();
+const survAPIApplication = express();
 const port = 3000;
 
 const cors = require('cors');
 
-app.use(cors());
+survAPIApplication.use(cors());
 
 const { Sequelize } = require('sequelize');
 
@@ -16,8 +16,8 @@ const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
 
 
 
-app.get('/', (req, res) => res.json(1));
-app.listen(port, () => checkDatabaseConnection());
+survAPIApplication.get('/', (req, res) => res.json(1));
+survAPIApplication.listen(port, () => checkDatabaseConnection());
 
 async function checkDatabaseConnection() {
     try {
