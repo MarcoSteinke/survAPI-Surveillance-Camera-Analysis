@@ -3,6 +3,10 @@
 
 # 📷 Security Cam
 
+CI Info:
+
+image::https://github.com/MarcoSteinke/Security-Cam/actions/workflows/node.js.yml/badge.svg[]
+
 ## ⚡ Introduction:
 
 This implementation demonstrates a Security-Camera Software which was written in javascript
