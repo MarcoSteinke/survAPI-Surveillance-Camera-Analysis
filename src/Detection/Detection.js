@@ -17,7 +17,7 @@ class Detection {
 
     toString() {
         let resultObjectsString = "";
-        objects.forEach(object => resultObjectsString += [object.label, object.confidence].join(', '));
+        objects.forEach(object => resultObjectsString += [object.label, "confidence=" + object.confidence.toFixed(2)].join(', '));
         return `id=${this.id}, objects=${resultObjectsString}, date=${this.dateObject.getValue()}`;
     }
 

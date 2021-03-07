@@ -52,3 +52,11 @@
 box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75);
 cursor: pointer;
   }
+
+  .modal {
+    display: none;
+  }
+  
+  .modal.is-open {
+    display: block;
+  }
