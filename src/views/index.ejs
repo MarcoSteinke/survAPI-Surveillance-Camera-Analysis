@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Object Detection</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="public/micromodal.css">
+    <link rel="stylesheet" href="micromodal.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
     <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js"></script>
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
@@ -42,7 +43,7 @@
     </nav>
     <div class="row">
       <div class="col">
-        <div id="state"><h3>Current camera:</h3></div>
+        <div id="state"><h3 style="margin: 24px;">Current camera:</h3></div>
       </div>
       <div class="col-sm">
         <h3 style="margin-top: 24px;">Latest Detections:</h3>
@@ -70,6 +71,12 @@
             </div>
         </div>
     </div>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="nav navbar-nav">
+          <a class="nav-item nav-link" href="https://www.github.com/MarcoSteinke/Security-Cam">GitHub</a>
+          <a class="nav-item nav-link" href="https://github.com/MarcoSteinke/Security-Cam/issues/new?assignees=&labels=&template=bug_report.md&title=">report Bug</a>
+      </div>
+  </nav>
     </div>
 
     <div class="modal micromodal-slide" id="latestDetectionModal" aria-hidden="true">
@@ -102,6 +109,6 @@
     <script src="../../Database/MockDatabase.js"></script>
     <script src="../../Repositories/DetectionRepository.js"></script>
     <script src="../../Detection/Detection.js"></script>
-    <script src="../../../SecurityCam.js"></script>
+    <script src="SecurityCam.js"></script>
   </body>
 </html>
