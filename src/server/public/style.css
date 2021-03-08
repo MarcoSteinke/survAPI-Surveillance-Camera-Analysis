@@ -15,3 +15,10 @@ body {
 table {
     margin: auto;
 }
+
+a {
+    padding: 6px;
+              border: 1px solid lightgray;
+              background: lightcoral;
+              color: white;
+}
