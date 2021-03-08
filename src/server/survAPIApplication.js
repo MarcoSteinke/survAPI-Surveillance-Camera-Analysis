@@ -35,7 +35,7 @@ const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
 
 
 
-survAPIApplication.get('/', (req, res) => res.json(1));
+survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: [1, 2, 3]}));
 survAPIApplication.listen(port, () => checkDatabaseConnection());
 
 async function checkDatabaseConnection() {
