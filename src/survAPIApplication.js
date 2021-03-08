@@ -46,15 +46,20 @@ const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
     dialect: 'mysql'
 });
 
+// Module imports:
+const IMPORTS_PREFIX = './subsystems';
+const Detection = require(IMPORTS_PREFIX + '/Detection/Detection.js');
 
 
-survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: [1, 2, 3]}));
+
+survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: new Detection(1, ['person'])}));
 survAPIApplication.listen(port, () => checkDatabaseConnection());
 
 async function checkDatabaseConnection() {
     try {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
+        console.log(new Date().toUTCString());
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }

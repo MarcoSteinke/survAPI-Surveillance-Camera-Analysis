@@ -1,4 +1,4 @@
-class Detection {
+module.exports = class Detection {
 
     constructor(id, objects) {
         this.id = id;
