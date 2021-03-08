@@ -22,6 +22,7 @@ survAPIApplication.use(bodyParser.urlencoded({ extended: true }));
 // for parsing multipart/form-data
 survAPIApplication.use(upload.array()); 
 survAPIApplication.use(express.static('public'));
+survAPIApplication.use(express.static('subsystems'));
 
 survAPIApplication.use(cors());
 
