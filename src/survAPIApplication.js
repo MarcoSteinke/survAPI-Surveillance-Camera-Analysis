@@ -29,6 +29,9 @@ survAPIApplication.use(cors());
 // enable MIME
 const mime = require('mime');
 
+// fs
+const fs = require('fs');
+
 mime.getType('txt');                    // ⇨ 'text/plain'
 mime.getExtension('text/plain');        // ⇨ 'txt'
 
@@ -57,9 +60,9 @@ survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: new Det
 
 
 // Thanks @https://betterprogramming.pub/video-stream-with-node-js-and-html5-320b3191a6b6
-app.get('/video', function(req, res) {
+survAPIApplication.get('/video', function(req, res) {
     // place any video to test this streaming route.
-    const path = 'assets/sample.mp4'
+    const path = 'assets/video.mp4'
     const stat = fs.statSync(path)
     const fileSize = stat.size
     const range = req.headers.range
