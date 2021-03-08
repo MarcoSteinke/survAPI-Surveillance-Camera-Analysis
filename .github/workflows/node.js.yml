@@ -5,7 +5,7 @@ name: Node.js CI
 
 defaults:
   run:
-    working-directory: ./src/server
+    working-directory: ./src/
     
 on:
   push:
