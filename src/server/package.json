@@ -4,7 +4,8 @@
   "description": "",
   "main": "survAPIApplication.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "devStart": "nodemon index.js"
   },
   "author": "Marco Steinke",
   "license": "MIT",
