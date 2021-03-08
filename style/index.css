@@ -60,3 +60,7 @@ cursor: pointer;
   .modal.is-open {
     display: block;
   }
+
+  #more {
+    margin-top: 20px;
+  }

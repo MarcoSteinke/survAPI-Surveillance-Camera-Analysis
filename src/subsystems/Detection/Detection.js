@@ -1,6 +1,4 @@
-const DetectionDate = require('../Detection/DetectionDate.js');
-
-module.exports = class Detection {
+class Detection {
 
     constructor(id, objects) {
         this.id = id;

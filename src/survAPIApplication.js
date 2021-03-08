@@ -23,6 +23,7 @@ survAPIApplication.use(bodyParser.urlencoded({ extended: true }));
 survAPIApplication.use(upload.array()); 
 survAPIApplication.use(express.static('public'));
 survAPIApplication.use(express.static('subsystems'));
+survAPIApplication.use(express.static(__dirname));
 
 survAPIApplication.use(cors());
 
@@ -56,7 +57,7 @@ const Detection = require(IMPORTS_PREFIX + '/Detection/Detection.js');
 
 
 
-survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: new Detection(1, ['person'])}));
+survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: 1}));
 
 
 // Thanks @https://betterprogramming.pub/video-stream-with-node-js-and-html5-320b3191a6b6
