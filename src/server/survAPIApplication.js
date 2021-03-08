@@ -4,6 +4,25 @@ const port = 3000;
 
 const cors = require('cors');
 
+// use ejs as rendering (view) engine
+survAPIApplication.set('view-engine', 'ejs');
+survAPIApplication.use(express.static('public'));
+var bodyParser = require('body-parser');
+// handle form data
+var multer = require('multer');
+var upload = multer();
+
+// for parsing application/json
+survAPIApplication.use(bodyParser.json()); 
+
+// for parsing application/xwww-
+survAPIApplication.use(bodyParser.urlencoded({ extended: true })); 
+//form-urlencoded
+
+// for parsing multipart/form-data
+survAPIApplication.use(upload.array()); 
+survAPIApplication.use(express.static('public'));
+
 survAPIApplication.use(cors());
 
 const { Sequelize } = require('sequelize');

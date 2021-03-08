@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="style.css" />
+
+<body>
+  <h1>Welcome to the simple Link Shortener</h1>
+
+  <h3>You can add new links below:</h3>
+
+  <hr>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <td>
+            Route
+          </td>
+          <td>
+            Destination
+          </td>
+          <td>
+            Configurate
+          </td>
+        </tr>
+      </thead>
+      <% for(let entry of data) { %>
+      <tr>
+        <td>
+          <%= entry[0] %>
+        </td>
+        <td>
+          <%= entry[1] %>
+        </td>
+        <td>
+          <a
+            style="
+              padding: 6px;
+              border: 1px solid lightgray;
+              background: lightcoral;
+              color: white;
+            "
+            href="/delete/<%= entry[0] %>"
+            >remove</a
+          >
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </div>
+  <hr>
+  <form action="/add" method="post">
+    <label for="link">Route</label>
+    <input type="text" name="link" id="link">
+    <label for="destination">Destination</label>
+    <input type="text" name="destination" id="destination">
+    <input type="submit" value="add">
+  </form>
+</body>

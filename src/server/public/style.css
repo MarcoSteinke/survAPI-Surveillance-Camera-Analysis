@@ -1,0 +1,17 @@
+td {
+    border-bottom: 1px solid lightgray;
+    padding: 8px;
+}
+
+body>*, body {
+    text-align: center;
+}
+
+body {
+    width: 70%;
+    margin: auto;
+}
+
+table {
+    margin: auto;
+}
