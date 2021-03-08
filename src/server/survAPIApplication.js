@@ -25,6 +25,18 @@ survAPIApplication.use(express.static('public'));
 
 survAPIApplication.use(cors());
 
+// enable MIME
+const mime = require('mime');
+
+mime.getType('txt');                    // ⇨ 'text/plain'
+mime.getExtension('text/plain');        // ⇨ 'txt'
+
+mime.getExtension('text/plain');               // ⇨ 'txt'
+mime.getExtension('application/json');         // ⇨ 'json'
+mime.getExtension('text/html; charset=utf8');  // ⇨ 'html'
+mime.getExtension('text/html');  // ⇨ 'html'
+
+
 const { Sequelize } = require('sequelize');
 
 // Option 2: Passing parameters separately (other dialects)

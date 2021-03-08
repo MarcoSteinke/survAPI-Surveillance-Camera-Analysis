@@ -1,24 +1,62 @@
-td {
-    border-bottom: 1px solid lightgray;
-    padding: 8px;
-}
+#state {
+    height: 500px;
+    text-align: center; margin: 0px !important;
+  }
 
-body>*, body {
-    text-align: center;
-}
+  #cameras>*, #cameras>*>* {
+    margin: 6px;
+    padding: 0;
+  }
 
-body {
-    width: 70%;
-    margin: auto;
-}
+  .other-camera {
+  }
 
-table {
-    margin: auto;
-}
+  .col {
+      margin: 24px;
+      text-align: center;
+  }
 
-a {
-    padding: 6px;
-              border: 1px solid lightgray;
-              background: lightcoral;
-              color: white;
-}
+  .col {
+    padding: 0;
+  }
+
+  tr:nth-child(odd) {
+    background-color: white;
+
+  }
+
+  :is(thead) tr {
+    background-color: #f1f1f1;
+  }
+
+  tr:nth-child(even) {
+    background: rgb(230,230,230);
+
+  }
+
+  tr:hover, tr:nth-child(even):hover, tr:nth-child(odd):hover {
+    background-color: aliceblue;
+  }
+
+  tr>*:hover, table:hover, tr>*>*:hover {
+    cursor: pointer;
+  }
+
+  body {
+    background-color: #f1f1f1; text-align: center;
+  }
+
+  .other-camera:hover {
+    -webkit-box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75);
+box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75);
+cursor: pointer;
+  }
+
+  .modal {
+    display: none;
+  }
+  
+  .modal.is-open {
+    display: block;
+  }
