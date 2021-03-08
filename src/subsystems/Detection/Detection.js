@@ -1,3 +1,5 @@
+const DetectionDate = require('../Detection/DetectionDate.js');
+
 module.exports = class Detection {
 
     constructor(id, objects) {

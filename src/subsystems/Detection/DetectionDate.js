@@ -1,4 +1,4 @@
-class DetectionDate extends Date {
+module.exports = class DetectionDate extends Date {
 
     constructor(day,month,year) {
         super();

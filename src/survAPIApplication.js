@@ -52,6 +52,7 @@ const Detection = require(IMPORTS_PREFIX + '/Detection/Detection.js');
 
 
 
+
 survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: new Detection(1, ['person'])}));
 survAPIApplication.listen(port, () => checkDatabaseConnection());
 
