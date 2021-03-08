@@ -12,7 +12,4 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:
-      - entry:/var/lib/mysql
-
-    volumes:
-      entry: {}
+      - db/entrypoint:/var/lib/mysql
