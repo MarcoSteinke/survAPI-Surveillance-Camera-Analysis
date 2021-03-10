@@ -59,6 +59,14 @@ const Detection = require(IMPORTS_PREFIX + '/Detection/Detection.js');
 
 survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: 1}));
 
+var bodyParser = require('body-parser');
+survAPIApplication.use(express.json());
+survAPIApplication.use(express.urlencoded());
+survAPIApplication.use(express.multipart());
+
+app.post('/detection', function(req, res) {
+  const { id, objects, date } = req.body;
+});
 
 // Thanks @https://betterprogramming.pub/video-stream-with-node-js-and-html5-320b3191a6b6
 survAPIApplication.get('/video', function(req, res) {
