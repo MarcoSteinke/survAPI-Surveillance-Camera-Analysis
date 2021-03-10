@@ -42,20 +42,36 @@ mime.getExtension('text/html; charset=utf8');  // ⇨ 'html'
 mime.getExtension('text/html');  // ⇨ 'html'
 
 
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 // Option 2: Passing parameters separately (other dialects)
 const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    database: 'SurvAPI'
 });
+
+const Detection = sequelize.define("detection", {
+  id: {
+    primaryKey: true,
+    type: DataTypes.BIGINT
+  },
+  objects: DataTypes.TEXT,
+  date: DataTypes.DATE
+})
 
 // Module imports:
 const IMPORTS_PREFIX = './subsystems';
-const Detection = require(IMPORTS_PREFIX + '/Detection/Detection.js');
 
 // enable axios for requests
 const axios = require('axios');
+
+// use for persistence
+const asyncMiddleware = fn =>
+  (req, res, next) => {
+    Promise.resolve(fn(req, res, next))
+      .catch(next);
+  };
 
 
 survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: 1}));
@@ -67,10 +83,11 @@ survAPIApplication.get('/detection', (req, res) => {
   res.render("form.ejs", {});
 })
 
-survAPIApplication.post('/detection', function(req, res) {
+survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
   const { id, objects, date } = req.body;
   console.log([id, objects, date].join(' '));
-});
+  const detection = await Detection.create({id: id, objects: objects, date: date});
+}));
 
 // Thanks @https://betterprogramming.pub/video-stream-with-node-js-and-html5-320b3191a6b6
 survAPIApplication.get('/video', function(req, res) {
@@ -121,11 +138,11 @@ axios
   .post('http://localhost:3000/detection', {
     id: 1,
     objects: "person",
-    date: new Date().toLocaleString()
+    date: "123"
   })
   .then(res => {
-    console.log(`statusCode: ${res.statusCode}`)
-    console.log(res)
+    //console.log(`statusCode: ${res.statusCode}`)
+    //console.log(res)
   })
   .catch(error => {
     console.error(error)
