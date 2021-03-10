@@ -54,18 +54,22 @@ const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
 const IMPORTS_PREFIX = './subsystems';
 const Detection = require(IMPORTS_PREFIX + '/Detection/Detection.js');
 
-
+// enable axios for requests
+const axios = require('axios');
 
 
 survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: 1}));
 
 var bodyParser = require('body-parser');
 survAPIApplication.use(express.json());
-survAPIApplication.use(express.urlencoded());
-survAPIApplication.use(express.multipart());
 
-app.post('/detection', function(req, res) {
+survAPIApplication.get('/detection', (req, res) => {
+  res.render("form.ejs", {});
+})
+
+survAPIApplication.post('/detection', function(req, res) {
   const { id, objects, date } = req.body;
+  console.log([id, objects, date].join(' '));
 });
 
 // Thanks @https://betterprogramming.pub/video-stream-with-node-js-and-html5-320b3191a6b6
@@ -112,3 +116,17 @@ async function checkDatabaseConnection() {
         console.error('Unable to connect to the database:', error);
     }
 }
+
+axios
+  .post('http://localhost:3000/detection', {
+    id: 1,
+    objects: "person",
+    date: new Date().toLocaleString()
+  })
+  .then(res => {
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
+  })
+  .catch(error => {
+    console.error(error)
+  })
