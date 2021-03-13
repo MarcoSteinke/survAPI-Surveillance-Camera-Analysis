@@ -1,4 +1,4 @@
-// Administrator settings
+// Administrator settings ( will be moved to properties file later )
 const port = 3000;
 const DB = 'SurvAPI';
 const DB_USER = 'root';
