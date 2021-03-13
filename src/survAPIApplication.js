@@ -48,7 +48,9 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
     host: 'localhost',
     dialect: 'mysql',
-    database: 'SurvAPI'
+    define: {
+      timestamps: false
+  }
 });
 
 const Detection = sequelize.define("detection", {
@@ -57,7 +59,12 @@ const Detection = sequelize.define("detection", {
     type: DataTypes.BIGINT
   },
   objects: DataTypes.TEXT,
-  date: DataTypes.DATE
+  date: {
+    type: DataTypes.DATE,
+    //allowNull: false,
+    //defaultValue: Sequelize.NOW
+  },
+  time: DataTypes.T
 })
 
 // Module imports:
@@ -73,50 +80,74 @@ const asyncMiddleware = fn =>
       .catch(next);
   };
 
-
 survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: 1}));
 
+// Require body-parser to parse requests easily
 var bodyParser = require('body-parser');
 survAPIApplication.use(express.json());
 
+// Route for testing ejs templates
 survAPIApplication.get('/detection', (req, res) => {
   res.render("form.ejs", {});
 })
 
+// Route used to persist detections inside of the database. Data sent to the server will be validated by Sequelize.
 survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
-  const { id, objects, date } = req.body;
-  console.log([id, objects, date].join(' '));
-  const detection = await Detection.create({id: id, objects: objects, date: date});
-}));
+
+  // parse fields from body
+  const { id, objects, date, time } = req.body;
+  console.log([id, objects, date, time].join(' '));
+
+  // persist as detection
+  const detection = await Detection.create(
+    {
+      id: id, 
+      objects: objects, 
+      date: date, 
+      time: time
+    }
+  );
+})
+);
 
 // Thanks @https://betterprogramming.pub/video-stream-with-node-js-and-html5-320b3191a6b6
 survAPIApplication.get('/video', function(req, res) {
+
     // place any video to test this streaming route.
     const path = 'assets/video.mp4'
     const stat = fs.statSync(path)
     const fileSize = stat.size
     const range = req.headers.range
+
     if (range) {
+
       const parts = range.replace(/bytes=/, "").split("-")
       const start = parseInt(parts[0], 10)
+
       const end = parts[1] 
         ? parseInt(parts[1], 10)
         : fileSize-1
+
       const chunksize = (end-start)+1
       const file = fs.createReadStream(path, {start, end})
+      // Define header for the packages sent to the browser
       const head = {
         'Content-Range': `bytes ${start}-${end}/${fileSize}`,
         'Accept-Ranges': 'bytes',
         'Content-Length': chunksize,
         'Content-Type': 'video/mp4',
       }
+
       res.writeHead(206, head);
       file.pipe(res);
+
     } else {
+
       const head = {
         'Content-Length': fileSize,
         'Content-Type': 'video/mp4',
       }
+
       res.writeHead(200, head)
       fs.createReadStream(path).pipe(res)
     }
@@ -124,6 +155,9 @@ survAPIApplication.get('/video', function(req, res) {
 
 survAPIApplication.listen(port, () => checkDatabaseConnection());
 
+/* Checks the database connection each time the application is run.
+ * Uses Sequelize's "authenticate()" to do so.
+ */
 async function checkDatabaseConnection() {
     try {
         await sequelize.authenticate();
@@ -134,15 +168,17 @@ async function checkDatabaseConnection() {
     }
 }
 
+// Trying to persist a detection in the database:
 axios
   .post('http://localhost:3000/detection', {
     id: 1,
     objects: "person",
-    date: "123"
+    date: new Date(),
+    time: new Date().toString().split(new Date().getFullYear())[1].split("GMT")[0].trim()
   })
   .then(res => {
-    //console.log(`statusCode: ${res.statusCode}`)
-    //console.log(res)
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
   })
   .catch(error => {
     console.error(error)
