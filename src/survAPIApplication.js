@@ -91,7 +91,7 @@ const asyncMiddleware = fn =>
       .catch(next);
   };
 
-survAPIApplication.get('/', (req, res) => res.render("index.ejs", {data: 1}));
+survAPIApplication.get('/', (req, res) => res.render("index.ejs", {cameraId: 0}));
 
 // Require body-parser to parse requests easily
 var bodyParser = require('body-parser');
@@ -101,6 +101,10 @@ survAPIApplication.use(express.json());
 survAPIApplication.get('/detection', (req, res) => {
   res.render("form.ejs", {});
 })
+
+survAPIApplication.get('/camera/:id', (req, res) => {
+  res.render("index.ejs", {cameraId: req.params.id});
+});
 
 // Route used to persist detections inside of the database. Data sent to the server will be validated by Sequelize.
 survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
