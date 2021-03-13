@@ -58,6 +58,9 @@ const Detection = sequelize.define("detection", {
     primaryKey: true,
     type: DataTypes.BIGINT
   },
+  camera: {
+    type: DataTypes.INTEGER
+  },
   objects: DataTypes.TEXT,
   date: {
     type: DataTypes.DATE,
@@ -95,11 +98,12 @@ survAPIApplication.get('/detection', (req, res) => {
 survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
 
   // parse fields from body
-  const { objects } = req.body;
+  const { camera, objects } = req.body;
 
   // persist as detection
   const detection = await Detection.create(
     {
+      camera: camera,
       objects: objects, 
       date: new Date(), 
       time: new Date().toString().split(new Date().getFullYear())[1].split("GMT")[0].trim()
