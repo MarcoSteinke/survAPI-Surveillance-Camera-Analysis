@@ -165,16 +165,3 @@ async function checkDatabaseConnection() {
         console.error('Unable to connect to the database:', error);
     }
 }
-
-// Trying to persist a detection in the database:
-axios
-  .post('http://localhost:3000/detection', {
-    objects: "person",
-  })
-  .then(res => {
-    console.log(`statusCode: ${res.statusCode}`)
-    console.log(res)
-  })
-  .catch(error => {
-    console.error(error)
-  })
