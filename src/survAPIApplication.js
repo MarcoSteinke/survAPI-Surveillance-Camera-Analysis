@@ -1,6 +1,14 @@
+// Administrator settings
+const port = 3000;
+const DB = 'SurvAPI';
+const DB_USER = 'root';
+const DB_PASSWORD = 'example';
+const DB_HOST = 'localhost';
+// if this is set to true, detections will be deleted on restart
+const testing = true;
+
 const express = require('express');
 const survAPIApplication = express();
-const port = 3000;
 
 const cors = require('cors');
 
@@ -45,8 +53,8 @@ mime.getExtension('text/html');  // ⇨ 'html'
 const { Sequelize, DataTypes } = require('sequelize');
 
 // Option 2: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('SurvAPI', 'root', 'example', {
-    host: 'localhost',
+const sequelize = new Sequelize(DB, DB_USER, DB_PASSWORD, {
+    host: DB_HOST,
     dialect: 'mysql',
     define: {
       timestamps: false
@@ -165,6 +173,13 @@ async function checkDatabaseConnection() {
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
         console.log(new Date().toUTCString());
+
+        // clear database on startup (only for testing)
+        if(testing) {
+          Detection.destroy({
+            truncate: true
+          });
+        }
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
