@@ -64,7 +64,7 @@ const Detection = sequelize.define("detection", {
     //allowNull: false,
     //defaultValue: Sequelize.NOW
   },
-  time: DataTypes.T
+  time: DataTypes.TEXT
 })
 
 // Module imports:
@@ -95,16 +95,14 @@ survAPIApplication.get('/detection', (req, res) => {
 survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
 
   // parse fields from body
-  const { id, objects, date, time } = req.body;
-  console.log([id, objects, date, time].join(' '));
+  const { objects } = req.body;
 
   // persist as detection
   const detection = await Detection.create(
     {
-      id: id, 
       objects: objects, 
-      date: date, 
-      time: time
+      date: new Date(), 
+      time: new Date().toString().split(new Date().getFullYear())[1].split("GMT")[0].trim()
     }
   );
 })
@@ -171,10 +169,7 @@ async function checkDatabaseConnection() {
 // Trying to persist a detection in the database:
 axios
   .post('http://localhost:3000/detection', {
-    id: 1,
     objects: "person",
-    date: new Date(),
-    time: new Date().toString().split(new Date().getFullYear())[1].split("GMT")[0].trim()
   })
   .then(res => {
     console.log(`statusCode: ${res.statusCode}`)
