@@ -3,6 +3,8 @@
 
 # 📷 survAPI Surveillance Camera Analysis
 
+## ❓ Need surveillance, but low on server capacity? 💡 Train the camera to know when to record.
+
 CI Info:
 
 image::https://github.com/MarcoSteinke/Security-Cam/actions/workflows/node.js.yml/badge.svg[]
