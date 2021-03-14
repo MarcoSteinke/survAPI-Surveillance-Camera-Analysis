@@ -1,3 +1,11 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
 :toc:
 :toclevels: 1
 
@@ -66,6 +74,9 @@ when to start recording and stop after a predefined amount of time passed.
 ⭐ predefine intervals to control data produced by the camera.
 
 ⭐ very simple database structure.
+
+[NOTE]
+Do you want to Request a feature? https://github.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/issues/new?assignees=&labels=&template=feature_request.md&title=[Click here to request]
 
 ## ℹ️ Demo:
 
