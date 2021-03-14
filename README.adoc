@@ -91,7 +91,34 @@ If you want to contribute, you need to `fork` this repository and write clean co
 * There should be a minimum of understanding, what the business problem in this case is.
 * You should be able to keep the architecture and not contribute beginner's code. (I am happy if a beginner contributes, because participating in a project can bring you further, but code should be readable, efficient and follow some principles) 
 
+### What is the most important part right now?
 
+___
+
+### https://github.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/milestone/1[Proof of Concept]
+
+
+`Due by March 31, 2021`
+
+
+The Proof of Concept will be a fully working Webapplication which is able to add a camera to its database and persist anything which is detected, if it is defined as a target.
+
+
+#### Requirements:
+
+❏ Add one or more cameras via the Webinterface
+
+❏ Be able to switch between the cameras via Webinterface
+
+❏ List all detections of a certain camera and make them clickable to gain more information
+
+❏ Remove, or edit cameras from the Webinterface
+
+❏ Be able to search and filter detections
+
+https://github.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/milestones[Click here to get to the milestones]
+
+___
 
 ## ✎ Example Data from the Database:
 
