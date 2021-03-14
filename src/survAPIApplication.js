@@ -114,7 +114,7 @@ const asyncMiddleware = fn =>
   
 survAPIApplication.get('/', (req, res) => {
 
-  res.redirect("/camera/0");
+  res.render("index.ejs", {});
 });
 
 // Route for testing ejs templates
@@ -133,7 +133,7 @@ survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => 
 
   console.log(selectedCamera);
 
-  res.render("index.ejs", {cameraId: req.params.id, cameras: cameras, selectedCamera: selectedCamera});
+  res.render("camera.ejs", {cameraId: req.params.id, cameras: cameras, selectedCamera: selectedCamera});
 }));
 
 survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
