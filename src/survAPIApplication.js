@@ -90,6 +90,10 @@ const Camera = sequelize.define("camera", {
   resolution: DataTypes.SMALLINT
 });
 
+// dummy data
+const DummyData = require('./test/DummyData.js');
+const testData = new DummyData(Camera);
+
 // Module imports:
 const IMPORTS_PREFIX = './subsystems';
 
@@ -103,26 +107,40 @@ const asyncMiddleware = fn =>
       .catch(next);
   };
 
-survAPIApplication.get('/', (req, res) => res.render("index.ejs", {cameraId: 0}));
+  
+  // Require body-parser to parse requests easily
+  var bodyParser = require('body-parser');
+  survAPIApplication.use(express.json());
+  
+survAPIApplication.get('/', (req, res) => {
 
-// Require body-parser to parse requests easily
-var bodyParser = require('body-parser');
-survAPIApplication.use(express.json());
+  res.redirect("/camera/0");
+});
 
 // Route for testing ejs templates
 survAPIApplication.get('/detection', (req, res) => {
   res.render("form.ejs", {});
 })
 
-survAPIApplication.get('/camera/:id', (req, res) => {
-  res.render("index.ejs", {cameraId: req.params.id});
-});
+survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => {
 
-survAPIApplication.get('/cameras', (req, res) => {
-  const cameras = Camera.findAll();
+  const cameras = await Camera.findAll();
+
+  const selectedCamera = await Camera.findAll({
+    attributes: ["id"], 
+    where: {id: req.params.id} // Your filters here
+  });
+
+  console.log(selectedCamera);
+
+  res.render("index.ejs", {cameraId: req.params.id, cameras: cameras, selectedCamera: selectedCamera});
+}));
+
+survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
+  const cameras = await Camera.findAll();
   console.log(cameras);
-  res.render("addCamera.ejs", {cameras: []});
-});
+  res.render("addCamera.ejs", {cameras: cameras});
+}));
 
 survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) => {
 
@@ -226,6 +244,14 @@ async function checkDatabaseConnection() {
           Detection.destroy({
             truncate: true
           });
+
+          Camera.destroy({
+            truncate: true
+          });
+
+          // Add some dummy data
+          testData.cameras();
+          
         }
     } catch (error) {
         console.error('Unable to connect to the database:', error);
