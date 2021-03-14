@@ -121,7 +121,7 @@
           <h2>Your cameras:</h2>
           <div style="height: 800px; overflow-y: scroll;">
             <% cameras.forEach(function(camera) { %>
-              <div class="card other-camera" style="margin: 23.3px;  background: #f1f1f1">
+              <div class="card other-camera" style="margin: 23.3px;  background: #f1f1f1" onclick="window.location.href = '/camera/' + 0;">
                 <div class="card-body">
                   <h5 class="card-title"><%= camera.name %></h5>
                   <p class="card-text"><%= camera.description %></p>
