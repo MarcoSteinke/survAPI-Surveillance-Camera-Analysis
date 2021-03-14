@@ -118,6 +118,12 @@ survAPIApplication.get('/camera/:id', (req, res) => {
   res.render("index.ejs", {cameraId: req.params.id});
 });
 
+survAPIApplication.get('/cameras', (req, res) => {
+  const cameras = Camera.findAll();
+  console.log(cameras);
+  res.render("addCamera.ejs", {cameras: []});
+});
+
 survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) => {
 
   // TODO validation
@@ -133,9 +139,15 @@ survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) =
     }
   );
 
-  res.redirect(['localhost:', '/'].join(port));
+  res.redirect('/cameras/success');
 })
 );
+
+survAPIApplication.get('/cameras/success', asyncMiddleware(async (req, res, next) => {
+  const cameras = await Camera.findAll();
+  console.log(cameras);
+  res.render("addCamera.ejs", {cameras: cameras, success: true});
+}));
 
 // Route used to persist detections inside of the database. Data sent to the server will be validated by Sequelize.
 survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
