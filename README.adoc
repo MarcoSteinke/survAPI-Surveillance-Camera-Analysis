@@ -14,6 +14,8 @@ and uses `cocossd` offered by `ml5` to detect objects.
 
 image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/screenshot.png?raw=true[width=800]
 
+Check out https://github.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/tree/main/img[this link to see all screenshots]
+
 ## ❓ Problem:
 
 A business needs a security camera, but is low on server capacity. Thatswhy the business

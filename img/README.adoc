@@ -1,0 +1,7 @@
+# 📷 survAPI Surveillance Camera Analysis
+
+## Screenshots:
+
+image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/screenshot.png?raw=true[width=800]
+
+image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/addcam.png?raw=true[width=800]
