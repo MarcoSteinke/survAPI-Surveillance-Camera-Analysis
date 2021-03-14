@@ -78,6 +78,18 @@ const Detection = sequelize.define("detection", {
   time: DataTypes.TEXT
 })
 
+const Camera = sequelize.define("camera", {
+  id: {
+    primaryKey: true,
+    type: DataTypes.BIGINT
+  },
+  name: DataTypes.TEXT,
+  description: DataTypes.TEXT,
+  ip: DataTypes.TEXT,
+  port: DataTypes.SMALLINT, // maximum port is 65535
+  resolution: DataTypes.SMALLINT
+});
+
 // Module imports:
 const IMPORTS_PREFIX = './subsystems';
 
@@ -105,6 +117,25 @@ survAPIApplication.get('/detection', (req, res) => {
 survAPIApplication.get('/camera/:id', (req, res) => {
   res.render("index.ejs", {cameraId: req.params.id});
 });
+
+survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) => {
+
+  // TODO validation
+  const { name, description, ip, port, resolution} = req.body;
+
+  const camera = await Camera.create(
+    {
+      name: name,
+      description: description,
+      ip: ip,
+      port: port,
+      resolution: resolution
+    }
+  );
+
+  res.redirect(['localhost:', '/'].join(port));
+})
+);
 
 // Route used to persist detections inside of the database. Data sent to the server will be validated by Sequelize.
 survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
