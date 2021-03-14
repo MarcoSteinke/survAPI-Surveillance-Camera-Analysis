@@ -121,7 +121,7 @@
           <h2>Your cameras:</h2>
           <div style="height: 800px; overflow-y: scroll;">
             <% cameras.forEach(function(camera) { %>
-              <div class="card" style="margin: 23.3px">
+              <div class="card other-camera" style="margin: 23.3px">
                 <div class="card-body">
                   <h5 class="card-title"><%= camera.name %></h5>
                   <p class="card-text"><%= camera.description %></p>
@@ -192,16 +192,5 @@
         </div>
       </div>
     </div>
-
-    <script src="../public/require.js"></script>
-    <script src="Camera/CameraConfiguration.js"></script>
-    <script src="Camera/Camera.js"></script>
-    <script src="Frontend/CameraListRenderer.js"></script>
-    <script src="Frontend/LatestDetectionRenderer.js"></script>
-    <script src="Detection/DetectionDate.js"></script>
-    <script src="Database/MockDatabase.js"></script>
-    <script src="Repositories/DetectionRepository.js"></script>
-    <script src="Detection/Detection.js"></script>
-    <script src="../SecurityCam.js"></script>
   </body>
 </html>
