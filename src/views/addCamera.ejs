@@ -38,6 +38,7 @@
     <style>
       .col {
         text-align: center;
+        margin: 24px;
       }
 
       .card {
@@ -116,6 +117,26 @@
             </div>
             <button class="btn btn-primary" type="submit">Add</button>
           </form>
+
+          <hr>
+          <h2>Information:</h2>
+
+          
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of Cameras</td>
+                <td><%= cameras.length %></td>
+              </tr>
+            </tbody>
+          </table>
+          
         </div>
         <div class="col">
           <h2>Your cameras:</h2>

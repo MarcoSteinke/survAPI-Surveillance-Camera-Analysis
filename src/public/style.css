@@ -60,3 +60,7 @@ cursor: pointer;
   .modal.is-open {
     display: block;
   }
+
+  .card {
+    border-radius: 0 !important;
+  }
