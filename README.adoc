@@ -11,8 +11,8 @@ endif::[]
 
 # 📷 survAPI Surveillance Camera Analysis
 
-## ❓ Need surveillance, but low on server capacity? 
-## 💡 Train the camera to know when to record.
+### ❓ Need surveillance, but low on server capacity? 
+### 💡 Train the camera to know when to record.
 
 CI Info:
 
