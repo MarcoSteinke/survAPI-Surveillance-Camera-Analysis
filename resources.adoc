@@ -1,0 +1,18 @@
+# Resources
+
+Short collection of resources I want to apply to the project:
+
+## 1. Security:
+
+- https://codeforgeek.com/manage-session-using-node-js-express-4/[Node Session]
+- https://entwickler.de/online/javascript/node-js-bcrypt-579817084.html[bcrypt]
+
+## 2. Frontend:
+
+- foo
+- bar
+
+## 3. Architecture:
+
+- baz
+- foo
