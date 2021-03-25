@@ -107,11 +107,11 @@ INFORMATION: more to follow in the future.
 
 - To install NodeJS, you will have to do either:
 * Visit `https://nodejs.org/en/download/[this url]` on Windows
-- Linux:
+* Linux:
 
   sudo apt install node
   
-- MacOS:
+* MacOS:
 
   brew install node
 
