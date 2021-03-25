@@ -16,3 +16,8 @@ Short collection of resources I want to apply to the project:
 
 - baz
 - foo
+
+## 4. ML
+
+- https://www.kdnuggets.com/2018/09/object-detection-image-classification-yolo.html[YOLO]
+- https://learn.ml5js.org/#/reference/index[ML5 Docs]
