@@ -21,6 +21,10 @@ function checkSession(request) {
   return sessionTmp.username != undefined;
 }
 
+// bcrypt
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const cors = require('cors');
 
 // use ejs as rendering (view) engine
@@ -89,6 +93,16 @@ const Detection = sequelize.define("detection", {
   time: DataTypes.TEXT
 })
 
+const User = sequelize.define("user", {
+  id: {
+    primaryKey: true,
+    type: DataTypes.INTEGER
+  },
+  username: DataTypes.TEXT,
+  password: DataTypes.TEXT,
+  role: DataTypes.INTEGER
+});
+
 const Camera = sequelize.define("camera", {
   id: {
     primaryKey: true,
@@ -147,17 +161,34 @@ survAPIApplication.get('/login', (req, res) => {
 });
 
 // POST Route for login
-survAPIApplication.post('/login', (req, res) => {
+survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
 
   sessionTmp = req.session;
   const { username, password } = req.body;
 
   sessionTmp.username = username;
 
+  let user = await User.findOne({where: { username: username}});
+
+  if(!user) {
+    bcrypt.genSalt(saltRounds, function(err, salt) {
+
+      bcrypt.hash(password, salt, function(err, hash) {
+
+          User.create(
+            {
+              username: username,
+              password: hash
+            }
+          );
+      });
+    });
+  }
+
   console.log(sessionTmp.username);
 
   res.render("index.ejs", {username: sessionTmp.username});
-});
+}));
 
 survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => {
 
