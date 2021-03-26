@@ -60,25 +60,12 @@ when to start recording and stop after a predefined amount of time passed.
 
 ## 🏆 Features:
 
-⭐ advance your security by getting additional information from your camera.
-  
-⭐ super simple setup.
-
-⭐ modern dashboard and webpages to access the cameras.
-
-⭐ combine any hardware with this software.
-
-⭐ SurvAPI: The included surveillance API also offers all of the analysis tool to be called from other frameworks.
-
-⭐ lightweight and fast.
-
-⭐ optimized amount of video data.
-
-⭐ Machine Learning used to detect certain targets.
-
-⭐ predefine intervals to control data produced by the camera.
-
-⭐ very simple database structure.
+|=======================
+| ⭐ advance your security by getting additional information from your camera. | ⭐ super simple setup. | ⭐ modern dashboard and webpages to access the cameras.
+| ⭐ combine any hardware with this software. | ⭐ SurvAPI: The included surveillance API also offers all of the analysis tool to be called from other frameworks. | ⭐ lightweight and fast.
+| ⭐ optimized amount of video data. | ⭐ Machine Learning used to detect certain targets. | ⭐ predefine intervals to control data produced by the camera.
+| ⭐ very simple database structure |⭐high security level by using bcrypt |
+|=======================
 
 [NOTE]
 Do you want to Request a feature? https://github.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/issues/new?assignees=&labels=&template=feature_request.md&title=[Click here to request]
