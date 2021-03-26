@@ -11,3 +11,7 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - schema:/db/entrypoint
+volumes: 
+  schema:
