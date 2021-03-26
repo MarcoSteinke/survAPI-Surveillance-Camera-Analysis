@@ -25,6 +25,11 @@ and uses `cocossd` offered by `ml5` to detect objects.
 
 image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/screenshot.png?raw=true[width=800]
 
+The application is secured using `express-session` and `bcrypt`. This way only authenticated users can access your surveillance and you are
+able to allow `registrations` and create new `roles` to control this system.
+
+image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/db.PNG[width=800]
+
 Check out https://github.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/tree/main/img[this link to see all screenshots]
 
 ## ❓ Problem:
