@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>survAPI - Surveillance | Analysis </title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="micromodal.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script>
+      MicroModal.init({
+        onShow: (modal) => console.info(`${modal.id} is shown`), // [1]
+        onClose: (modal) => console.info(`${modal.id} is hidden`), // [2]
+        openTrigger: "data-custom-open", // [3]
+        closeTrigger: "data-custom-close", // [4]
+        openClass: "is-open", // [5]
+        disableScroll: true, // [6]
+        disableFocus: false, // [7]
+        awaitOpenAnimation: false, // [8]
+        awaitCloseAnimation: false, // [9]
+        debugMode: true, // [10]
+      });
+    </script>
+    <link rel="stylesheet" href="Object-Detection/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="public/index.css" />
+    <style>
+      .col {
+        text-align: center;
+        margin: 24px;
+      }
+
+      .card {
+        width: 512px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+          <a class="nav-item nav-link active" href="#"
+            >Surveillance Dashboard</a
+          >
+          <a class="nav-item nav-link" href="/" onclick="window.location.href = 'localhost:3000/'">Start</a>
+        </div>
+      </nav>
+
+      <h2>Register</h2>
+
+      <form method="post" action="/login">
+          <div class="form-group">
+              <label for="username">Username:</label>
+              <input id="username" class="form-control" type="text" name="username">
+          </div>
+          <div class="form-group">
+              <label for="password">Password:</label>
+              <input id="password" class="form-control" type="password" name="password">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+      </form>
+
+      <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+          <a
+            class="nav-item nav-link"
+            href="https://www.github.com/MarcoSteinke/Security-Cam"
+            >GitHub</a
+          >
+          <a
+            class="nav-item nav-link"
+            href="https://github.com/MarcoSteinke/Security-Cam/issues/new?assignees=&labels=&template=bug_report.md&title="
+            >report Bug</a
+          >
+        </div>
+      </nav>
+    </div>
+
+    <div
+      class="modal micromodal-slide"
+      id="latestDetectionModal"
+      aria-hidden="true"
+    >
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div
+          class="modal__container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="latestDetectionModal-title"
+        >
+          <header class="modal__header">
+            <h2 class="modal__title" id="latestDetectionModal-title">
+              Micromodal
+            </h2>
+            <button
+              class="modal__close"
+              aria-label="Close modal"
+              data-micromodal-close
+            ></button>
+          </header>
+          <main class="modal__content" id="latestDetectionModal-content">
+            <p>
+              Try hitting the <code>tab</code> key and notice how the focus
+              stays within the modal itself. Also, <code>esc</code> to close
+              modal.
+            </p>
+          </main>
+          <footer class="modal__footer">
+            <!--<button class="modal__btn modal__btn-primary">Continue</button>-->
+            <button
+              class="modal__btn"
+              data-micromodal-close
+              aria-label="Close this dialog window"
+            >
+              Close
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

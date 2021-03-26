@@ -39,10 +39,18 @@
         <div class="nav navbar-nav">
             <a class="nav-item nav-link active" href="#">Surveillance Dashboard</a>
             <a class="nav-item nav-link" href="#">Start</a>
-            <a class="nav-item nav-link" href="#"><%= username %></a>
+            <a class="nav-item nav-link" href="#"></a>
         </div>
     </nav>
     <h2>SurvAPI - Dashboard</h2>
+    <div class="row">
+      <div class="col">
+        <%- include('registerForm.ejs', {}) %>
+      </div>
+      <div class="col">
+        <%- include('loginForm.ejs', {}) %>
+      </div>
+    </div>
     <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="nav navbar-nav">
           <a class="nav-item nav-link" href="https://www.github.com/MarcoSteinke/Security-Cam">GitHub</a>

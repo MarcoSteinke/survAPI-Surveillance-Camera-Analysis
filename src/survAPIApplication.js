@@ -139,9 +139,9 @@ const asyncMiddleware = fn =>
   
 survAPIApplication.get('/', (req, res) => {
 
-  if(checkSession(req)) res.render("index.ejs", {username: sessionTmp.username});
+  //if(checkSession(req)) res.render("index.ejs", {username: sessionTmp.username});
 
-  res.render("login.ejs", {});
+  res.render("index.ejs", {});
 
 });
 
@@ -162,6 +162,30 @@ survAPIApplication.get('/login', (req, res) => {
 
 // POST Route for login
 survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
+
+  sessionTmp = req.session;
+  const { username, password } = req.body;
+
+  sessionTmp.username = username;
+
+  let user = await User.findOne({where: { username: username}});
+
+  if(!user) {
+    // print any error like "user already exists"
+  }
+
+  bcrypt.compare(password, user.password, function(err, result) {
+      console.log(result)
+  });
+
+  console.log(sessionTmp.username);
+
+  res.render("index.ejs", {username: sessionTmp.username});
+}));
+
+// POST Route for register
+// This route is only accessible by the predefined admin user
+survAPIApplication.post('/register', asyncMiddleware(async (req, res, next) => {
 
   sessionTmp = req.session;
   const { username, password } = req.body;
