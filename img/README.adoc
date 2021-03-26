@@ -8,4 +8,9 @@ image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camer
 
 image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/landing.PNG[width=800]
 
+### 4. Persistence:
+
+As you can see in the following screenshot, user passwords will be secured using bcrypt. You also have a role system which uses `integers` in the database, 
+but in the backend you can simply map them to `strings`, such as `ADMIN`, `DEV`, `USER`.
+
 image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/db.PNG[width=800]
