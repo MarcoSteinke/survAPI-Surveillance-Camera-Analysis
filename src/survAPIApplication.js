@@ -125,7 +125,7 @@ const asyncMiddleware = fn =>
   
 survAPIApplication.get('/', (req, res) => {
 
-  if(checkSession(req)) res.render("index.ejs");
+  if(checkSession(req)) res.render("index.ejs", {username: sessionTmp.username});
 
   res.render("login.ejs", {});
 
@@ -134,7 +134,7 @@ survAPIApplication.get('/', (req, res) => {
 // Route for testing ejs templates
 survAPIApplication.get('/detection', (req, res) => {
   if(checkSession(req))
-    res.render("form.ejs", {});
+    res.render("form.ejs", {username: sessionTmp.username});
   else res.redirect("/login");
 });
 
@@ -142,7 +142,7 @@ survAPIApplication.get('/detection', (req, res) => {
 survAPIApplication.get('/login', (req, res) => {
 
   if(checkSession(req)) res.redirect("/");
-  res.render("login.ejs", {});
+  res.render("login.ejs", {username: ""});
 
 });
 
@@ -156,7 +156,7 @@ survAPIApplication.post('/login', (req, res) => {
 
   console.log(sessionTmp.username);
 
-  res.render("index.ejs");
+  res.render("index.ejs", {username: sessionTmp.username});
 });
 
 survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => {
@@ -172,7 +172,7 @@ survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => 
 
   console.log(selectedCamera);
 
-  res.render("camera.ejs", {cameraId: req.params.id, cameras: cameras, selectedCamera: selectedCamera});
+  res.render("camera.ejs", {cameraId: req.params.id, cameras: cameras, selectedCamera: selectedCamera, username: sessionTmp.username});
 }));
 
 survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
@@ -181,7 +181,7 @@ survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
 
   const cameras = await Camera.findAll();
   console.log(cameras);
-  res.render("addCamera.ejs", {cameras: cameras});
+  res.render("addCamera.ejs", {cameras: cameras, username: sessionTmp.username});
 }));
 
 survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) => {
@@ -201,7 +201,7 @@ survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) =
     }
   );
 
-  res.redirect('/cameras/success');
+  res.redirect('/cameras/success', {username: sessionTmp.username});
 })
 );
 
@@ -211,7 +211,7 @@ survAPIApplication.get('/cameras/success', asyncMiddleware(async (req, res, next
 
   const cameras = await Camera.findAll();
   console.log(cameras);
-  res.render("addCamera.ejs", {cameras: cameras, success: true});
+  res.render("addCamera.ejs", {cameras: cameras, success: true, username: sessionTmp.username});
 }));
 
 // Route used to persist detections inside of the database. Data sent to the server will be validated by Sequelize.
