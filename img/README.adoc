@@ -5,3 +5,7 @@
 image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/screenshot.png?raw=true[width=800]
 
 image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/addcam1.PNG[width=800]
+
+image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/landing.PNG[width=800]
+
+image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/db.PNG[width=800]
