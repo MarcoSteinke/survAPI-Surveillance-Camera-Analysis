@@ -10,6 +10,17 @@ const testing = true;
 const express = require('express');
 const survAPIApplication = express();
 
+// enable sessions
+const session = require('express-session');
+survAPIApplication.use(session({secret: 'ssshhhhh'}));
+let sessionTmp;
+
+function checkSession(request) {
+  sessionTmp = request.session;
+
+  return sessionTmp.username != undefined;
+}
+
 const cors = require('cors');
 
 // use ejs as rendering (view) engine
@@ -114,15 +125,43 @@ const asyncMiddleware = fn =>
   
 survAPIApplication.get('/', (req, res) => {
 
-  res.render("index.ejs", {});
+  if(checkSession(req)) res.render("index.ejs");
+
+  res.render("login.ejs", {});
+
 });
 
 // Route for testing ejs templates
 survAPIApplication.get('/detection', (req, res) => {
-  res.render("form.ejs", {});
-})
+  if(checkSession(req))
+    res.render("form.ejs", {});
+  else res.redirect("/login");
+});
+
+// GET Route for login
+survAPIApplication.get('/login', (req, res) => {
+
+  if(checkSession(req)) res.redirect("/");
+  res.render("login.ejs", {});
+
+});
+
+// POST Route for login
+survAPIApplication.post('/login', (req, res) => {
+
+  sessionTmp = req.session;
+  const { username, password } = req.body;
+
+  sessionTmp.username = username;
+
+  console.log(sessionTmp.username);
+
+  res.render("index.ejs");
+});
 
 survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => {
+
+  if(!checkSession(req)) res.redirect("/login");
 
   const cameras = await Camera.findAll();
 
@@ -137,12 +176,17 @@ survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => 
 }));
 
 survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
+
+  if(!checkSession(req)) res.redirect("/login");
+
   const cameras = await Camera.findAll();
   console.log(cameras);
   res.render("addCamera.ejs", {cameras: cameras});
 }));
 
 survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) => {
+
+  if(!checkSession(req)) res.redirect("/login");
 
   // TODO validation
   const { name, description, ip, port, resolution} = req.body;
@@ -162,6 +206,9 @@ survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) =
 );
 
 survAPIApplication.get('/cameras/success', asyncMiddleware(async (req, res, next) => {
+
+  if(!checkSession(req)) res.redirect("/login");
+
   const cameras = await Camera.findAll();
   console.log(cameras);
   res.render("addCamera.ejs", {cameras: cameras, success: true});
