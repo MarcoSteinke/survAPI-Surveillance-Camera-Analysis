@@ -6,6 +6,11 @@ image::https://github.com/MarcoSteinke/Security-Cam/blob/main/img/screenshot.png
 
 image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/addcam1.PNG[width=800]
 
+### 3. Security:
+
+This application is secured using `express-session` and `bcrypt`. This way it is save against the most common attacks and your security cameras will not be more attackable
+by deploying this application. The `registration form` and `login form` are located in separate ejs views for simplified modification.
+
 image::https://raw.githubusercontent.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/main/img/landing.PNG[width=800]
 
 ### 4. Persistence:
