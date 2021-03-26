@@ -28,3 +28,6 @@ CREATE TABLE `SurvAPI`.`users` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+
+ALTER TABLE `SurvAPI`.`users` 
+ADD COLUMN `password` VARCHAR(200) NOT NULL AFTER `username`;
