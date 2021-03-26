@@ -94,6 +94,27 @@ Do you want to Request a feature? https://github.com/MarcoSteinke/survAPI-Survei
 
 INFORMATION: more to follow in the future.
 
+## 🔥 Deployment:
+
+### 1. Requirements:
+
+- NodeJS
+- Docker
+- Docker-compose
+- Text/Code-Editor of your choice (I used VSCode)
+
+### 2. Setup:
+
+- To install NodeJS, you will have to do either:
+* `Windows`: Visit `https://nodejs.org/en/download/[this url]`
+* `Linux`:
+
+  sudo apt install node
+  
+* `MacOS`:
+
+  brew install node
+
 ## 🤝 Contribution:
 
 If you want to contribute, you need to `fork` this repository and write clean commits. What do I mean with clean commits?
