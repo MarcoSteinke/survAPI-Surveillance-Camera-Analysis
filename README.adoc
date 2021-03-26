@@ -364,6 +364,7 @@ More explanations will be added soon.
 * https://kintronics.com/resources/faqs-ip-camera-systems/#2[Frequently Asked Questions or FAQs about IP Camera Systems]
 * https://richmondalarm.com/security-tips/nvr-dvr-pros-cons[NVR vs DVR: Pros and Cons]
 * https://en.wikipedia.org/wiki/Network_video_recorder[Network Video Recorder]
+* https://codahale.com/a-lesson-in-timing-attacks/[A Lesson in Timing Attacks]
 
 ## ⚖️ License
 
