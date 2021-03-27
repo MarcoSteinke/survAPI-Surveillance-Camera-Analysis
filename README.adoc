@@ -253,7 +253,7 @@ y: 16.696457862854004
 The project will be separated into the subsystems `Camera`, `Surveillance`, `Database`, `Webviews` where each subsystem exactly solves one
 of the given business problems.
 
-To guarantee clean code, this project will profit from `Domain Driven Design` and from `Self Contained System`'s.
+To guarantee clean code, this project will profit from `Domain Driven Design` and from `Self Contained System`'s`.
 
 #### Camera:
 
