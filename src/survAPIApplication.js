@@ -139,9 +139,7 @@ const asyncMiddleware = fn =>
   
 survAPIApplication.get('/', (req, res) => {
 
-  //if(checkSession(req)) res.render("index.ejs", {username: sessionTmp.username});
-
-  res.render("index.ejs", {});
+  res.render("index.ejs", {username: (checkSession(req)) ? sessionTmp.username : 0});
 
 });
 
@@ -157,6 +155,13 @@ survAPIApplication.get('/login', (req, res) => {
 
   if(checkSession(req)) res.redirect("/");
   res.render("login.ejs", {username: ""});
+
+});
+
+// ERROR
+survAPIApplication.get('/error', (req, res) => {
+
+  res.render("error.ejs", {username: ""});
 
 });
 
@@ -180,7 +185,7 @@ survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
 
   console.log(sessionTmp.username);
 
-  res.render("index.ejs", {username: sessionTmp.username});
+  res.render("login.ejs", {username: sessionTmp.username});
 }));
 
 // POST Route for register
@@ -359,3 +364,8 @@ async function checkDatabaseConnection() {
         console.error('Unable to connect to the database:', error);
     }
 }
+
+//The 404 Route (ALWAYS Keep this as the last route)
+survAPIApplication.get('*', function(req, res){
+  res.status(404).render("error.ejs", {username: (checkSession(req)) ? sessionTmp.username : 0});
+});

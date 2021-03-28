@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('head.ejs', {}) %>
+  <body>
+    <div class="container">
+      <%- include('nav.ejs', {username: (username != 0) ? username : 0}) %>
+    <h2>SurvAPI - Dashboard</h2>
+
+    <h4 style="margin: 100px;">It looks like something went wrong.</h4>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="nav navbar-nav">
+          <a class="nav-item nav-link" href="https://www.github.com/MarcoSteinke/Security-Cam">GitHub</a>
+          <a class="nav-item nav-link" href="https://github.com/MarcoSteinke/Security-Cam/issues/new?assignees=&labels=&template=bug_report.md&title=">report Bug</a>
+      </div>
+  </nav>
+    </div>
+  </body>
+</html>

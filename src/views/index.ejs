@@ -1,48 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>survAPI - Surveillance | Analysis </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="micromodal.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
-    <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js"></script>
-    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
-    <script>
-      MicroModal.init({
-        onShow: modal => console.info(`${modal.id} is shown`), // [1]
-        onClose: modal => console.info(`${modal.id} is hidden`), // [2]
-        openTrigger: 'data-custom-open', // [3]
-        closeTrigger: 'data-custom-close', // [4]
-        openClass: 'is-open', // [5]
-        disableScroll: true, // [6]
-        disableFocus: false, // [7]
-        awaitOpenAnimation: false, // [8]
-        awaitCloseAnimation: false, // [9]
-        debugMode: true // [10]
-      });
-  </script>
-    <link rel="stylesheet" href="Object-Detection/style.css" />
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-    crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="public/index.css">
-  </head>
+  <%- include('head.ejs', {}) %>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="#">Surveillance Dashboard</a>
-            <a class="nav-item nav-link" href="#">Start</a>
-            <a class="nav-item nav-link" href="#"></a>
-        </div>
-    </nav>
+      <%- include('nav.ejs', {username: (username != 0) ? username : 0}) %>
     <h2>SurvAPI - Dashboard</h2>
+
+    <% if (username == 0) { %>
     <div class="row">
       <div class="col">
         <%- include('registerForm.ejs', {}) %>
@@ -51,6 +15,11 @@
         <%- include('loginForm.ejs', {}) %>
       </div>
     </div>
+    <% } else {%>
+      <div>
+        Logged in.
+      </div>
+    <% } %>
     <nav class="navbar navbar-expand navbar-light bg-light">
       <div class="nav navbar-nav">
           <a class="nav-item nav-link" href="https://www.github.com/MarcoSteinke/Security-Cam">GitHub</a>
