@@ -158,13 +158,6 @@ survAPIApplication.get('/login', (req, res) => {
 
 });
 
-// ERROR
-survAPIApplication.get('/error', (req, res) => {
-
-  res.render("error.ejs", {username: ""});
-
-});
-
 // POST Route for login
 survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
 
