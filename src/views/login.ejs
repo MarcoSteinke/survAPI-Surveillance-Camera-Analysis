@@ -8,10 +8,13 @@
           window.location.href = "/";
         </script>
       <% } %>
-      <%- include('nav.ejs', {username: username}) %>
+      <%- include('nav.ejs', {username: (username != 0) ? username : 0}) %>
 
       <%- include('loginForm.ejs', {}) %>
 
+      <% if(error) { %>
+        <h6 class="text-danger"><%= error %></h6>
+      <% } %>
       <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
           <a

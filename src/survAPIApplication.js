@@ -139,6 +139,7 @@ const asyncMiddleware = fn =>
   
 survAPIApplication.get('/', (req, res) => {
 
+  // if the user is not logged in, the username will be set to 0.
   res.render("index.ejs", {username: (checkSession(req)) ? sessionTmp.username : 0});
 
 });
@@ -168,12 +169,21 @@ survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
 
   let user = await User.findOne({where: { username: username}});
 
-  if(!user) {
-    // print any error like "user already exists"
+  console.log(user);
+
+  // if the username is unknown, set the username to 0 and add an error message
+  if(user == null) {
+    res.render("login.ejs", {username: 0, error: "This username is unknown."});
+    return;
   }
 
+  // if the username is known, but the password is wrong, set the username to 0 and add an error message
   bcrypt.compare(password, user.password, function(err, result) {
-      console.log(result)
+      if(err) {
+        res.render("login.ejs", {username: 0, error: "This password is wrong."});
+        return;
+      }
+      else console.log(result);
   });
 
   console.log(sessionTmp.username);
