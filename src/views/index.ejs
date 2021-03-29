@@ -20,12 +20,7 @@
         Logged in.
       </div>
     <% } %>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-      <div class="nav navbar-nav">
-          <a class="nav-item nav-link" href="https://www.github.com/MarcoSteinke/Security-Cam">GitHub</a>
-          <a class="nav-item nav-link" href="https://github.com/MarcoSteinke/Security-Cam/issues/new?assignees=&labels=&template=bug_report.md&title=">report Bug</a>
-      </div>
-  </nav>
+    <%- include('footer.ejs', {}) %>
     </div>
 
     <div class="modal micromodal-slide" id="latestDetectionModal" aria-hidden="true">
