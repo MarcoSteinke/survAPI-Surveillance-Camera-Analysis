@@ -13,7 +13,7 @@
       <%- include('loginForm.ejs', {}) %>
 
       <% if(error) { %>
-        <h6 class="text-danger"><%= error %></h6>
+        <h6 class="text-danger"><%= (error) ? error : "" %></h6>
       <% } %>
       <%- include('footer.ejs', {}) %>
     </div>

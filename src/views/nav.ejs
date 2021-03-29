@@ -2,7 +2,7 @@
     <div class="nav navbar-nav">
         <a class="nav-item nav-link active" href="#">Surveillance Dashboard</a>
         <a class="nav-item nav-link" href="/">Start</a>
-        <% if(username != 0) { %>
+        <% if(username != 0 && username != -1) { %>
         <a class="nav-item nav-link" href="/cameras">Cameras</a>
         <a class="nav-item nav-link" href="/admin">Administration</a>
         <a class="nav-item nav-link" href="/user/<%= username %>">Logged in as <%= username %></a>

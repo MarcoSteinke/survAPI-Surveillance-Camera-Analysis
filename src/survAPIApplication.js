@@ -188,8 +188,17 @@ survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
 
   console.log(sessionTmp.username);
 
-  res.render("login.ejs", {username: sessionTmp.username});
+  res.render("login.ejs", {username: sessionTmp.username, error: ""});
 }));
+
+// LOGOUT
+survAPIApplication.get('/logout', (req, res) => {
+  if(!checkSession(req)) res.redirect("/");
+
+  const sessionTmp = req.session;
+  sessionTmp.destroy();
+  res.render('index.ejs', {username: -1});
+});
 
 // POST Route for register
 // This route is only accessible by the predefined admin user
