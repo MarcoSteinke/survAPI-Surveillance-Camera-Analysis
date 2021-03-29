@@ -16,6 +16,24 @@
       text-align: center;
   }
 
+  .btn {
+    margin: 12px;
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+    border-radius: 0px !important;
+  }
+
+  input {
+    border-radius: 0px !important;
+  }
+
+  .btn:hover {
+    -webkit-box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75) !important;
+-moz-box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75) !important;
+box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.75) !important;
+cursor: pointer;
+  }
+
   .col {
     padding: 0;
   }

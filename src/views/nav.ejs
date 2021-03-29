@@ -1,3 +1,49 @@
+<style>
+    /* Style The Dropdown Button */
+    .dropbtn {
+      color: white;
+      border: none;
+      cursor: pointer;
+      background: #f8f9fa!important;
+    }
+    
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #f1f1f1}
+    
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+      background-color: #f8f9fa!important;
+    }
+</style>
 <nav class="navbar navbar-expand navbar-light bg-light">
     <div class="nav navbar-nav">
         <a class="nav-item nav-link active" href="#">Surveillance Dashboard</a>
@@ -5,8 +51,14 @@
         <% if(username != 0 && username != -1) { %>
         <a class="nav-item nav-link" href="/cameras">Cameras</a>
         <a class="nav-item nav-link" href="/admin">Administration</a>
-        <a class="nav-item nav-link" href="/user/<%= username %>">Logged in as <%= username %></a>
-        <a class="nav-item nav-link" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+        <div class="dropdown">
+            <button class="dropbtn"><a class="nav-item nav-link" href=""><i class="fa fa-bars" aria-hidden="true"></i> <%= username %></a></button>
+            <div class="dropdown-content">
+                <a href="/user/<%= username %>"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                <a href="/settings"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a>
+                <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+            </div>
+        </div>
         <% } %>
     </div>
     </nav>
