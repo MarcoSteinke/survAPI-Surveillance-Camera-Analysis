@@ -178,17 +178,15 @@ survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
   }
 
   // if the username is known, but the password is wrong, set the username to 0 and add an error message
-  bcrypt.compare(password, user.password, function(err, result) {
-      if(err) {
+  let loggedIn = await bcrypt.compare(password, user.password, function(err, result) {
+      if(!err && result) {
+        res.render("login.ejs", {username: sessionTmp.username, error: ""});
+      } else {
         res.render("login.ejs", {username: 0, error: "This password is wrong."});
+        sessionTmp.destroy();
         return;
       }
-      else console.log(result);
   });
-
-  console.log(sessionTmp.username);
-
-  res.render("login.ejs", {username: sessionTmp.username, error: ""});
 }));
 
 // LOGOUT
