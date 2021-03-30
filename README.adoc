@@ -76,17 +76,7 @@ Do you want to Request a feature? https://github.com/MarcoSteinke/survAPI-Survei
 
 ## ℹ️ Demo:
 
-⚠️ At the moment the demo may not work correctly in your browser. (`6th March 2021`)
-
-* click https://www.bestofcode.net/Applications/Security-Camera[ℹ here] to open the demo in your web browser.
-
-⚠️ make sure your webcam is allowed.
-
-⚠️ if "model loading" does not change, please RELOAD (F5)
-
-* open the developer console in your browser (F12 Chrome/Chromium, CTRL+SHIFT+S Firefox).
-* type for example `DATABASE` and hit enter to inspect the database instance.
-* type `DATABASE.db` and hit enter to inspect the content of the database.
+⚠️ At the moment the demo may not work correctly in your browser. Thatswhy it is disabled.
 
 INFORMATION: more to follow in the future.
 
@@ -110,6 +100,13 @@ INFORMATION: more to follow in the future.
 * `MacOS`:
 
   brew install node
+  
+### 3. Docker:
+
+- The installation of Docker is different on each operating system.
+* `Windows`: Visit `[this.url]`
+
+INFORMATION: more to follow in the future.
 
 ## 🤝 Contribution:
 
