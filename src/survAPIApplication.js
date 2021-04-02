@@ -34,7 +34,7 @@ const cors = require('cors');
 
 // use ejs as rendering (view) engine
 survAPIApplication.set('view-engine', 'ejs');
-survAPIApplication.use(express.static('./infrastructure/web/public'));
+survAPIApplication.use(express.static('./infrastructure/web/static'));
 var bodyParser = require('body-parser');
 // handle form data
 var multer = require('multer');
