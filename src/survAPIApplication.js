@@ -10,6 +10,8 @@ const testing = true;
 const express = require('express');
 const survAPIApplication = express();
 
+survAPIApplication.set('views','./infrastructure/web/views');
+
 // enable sessions
 const session = require('express-session');
 survAPIApplication.use(session({secret: 'ssshhhhh'}));
