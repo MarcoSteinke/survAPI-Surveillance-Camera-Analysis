@@ -10,6 +10,9 @@ const testing = true;
 const express = require('express');
 const survAPIApplication = express();
 
+const SurvAPIRouter = require('./infrastructure/web/router/SurvAPIRouter.js');
+const asyncMiddleware = SurvAPIRouter.asyncMiddleware;
+
 survAPIApplication.set('views','./infrastructure/web/views');
 
 // enable sessions
@@ -126,14 +129,6 @@ const IMPORTS_PREFIX = './subsystems';
 
 // enable axios for requests
 const axios = require('axios');
-
-// use for persistence
-const asyncMiddleware = fn =>
-  (req, res, next) => {
-    Promise.resolve(fn(req, res, next))
-      .catch(next);
-  };
-
   
   // Require body-parser to parse requests easily
   var bodyParser = require('body-parser');
