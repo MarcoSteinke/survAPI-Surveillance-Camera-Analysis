@@ -1,6 +1,8 @@
 // LOGOUT
+const SessionManager = require("../../../security/SessionManager");
+
 exports.logout = function(req, res) {
-    if(!checkSession(req)) res.redirect("/");
+    if(!SessionManager.checkSession(req)) res.redirect("/");
 
     const sessionTmp = req.session;
     sessionTmp.destroy();
