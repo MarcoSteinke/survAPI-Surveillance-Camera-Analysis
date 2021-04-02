@@ -27,6 +27,10 @@
     border-radius: 0px !important;
   }
 
+  input:hover {
+    border: 1px solid black !important;
+  }
+
   nav, body, .container, .row {
     box-shadow: 1px 0px 39px -23px rgba(0,0,0,0.9) !important;;
   }
