@@ -20,11 +20,11 @@ const session = require('express-session');
 survAPIApplication.use(session({secret: 'ssshhhhh'}));
 let sessionTmp;
 
-function checkSession(request) {
+/*function checkSession(request) {
   sessionTmp = request.session;
 
   return sessionTmp.username != undefined;
-}
+}*/
 
 // bcrypt
 const bcrypt = require('bcrypt');
@@ -127,6 +127,8 @@ const testData = new DummyData(Camera);
 // Module imports:
 const IMPORTS_PREFIX = './subsystems';
 
+const SessionManager = require("./infrastructure/security/SessionManager");
+
 // enable axios for requests
 const axios = require('axios');
   
@@ -137,13 +139,13 @@ const axios = require('axios');
 survAPIApplication.get('/', (req, res) => {
 
   // if the user is not logged in, the username will be set to 0.
-  res.render("index.ejs", {username: (checkSession(req)) ? sessionTmp.username : 0});
+  res.render("index.ejs", {username: (SessionManager.checkSession(req)) ? sessionTmp.username : 0});
 
 });
 
 // Route for testing ejs templates
 survAPIApplication.get('/detection', (req, res) => {
-  if(checkSession(req))
+  if(SessionManager.checkSession(req))
     res.render("form.ejs", {username: sessionTmp.username});
   else res.redirect("/login");
 });
@@ -151,7 +153,7 @@ survAPIApplication.get('/detection', (req, res) => {
 // GET Route for login
 survAPIApplication.get('/login', (req, res) => {
 
-  if(checkSession(req)) res.redirect("/");
+  if(SessionManager.checkSession(req)) res.redirect("/");
   res.render("login.ejs", {username: ""});
 
 });
@@ -186,14 +188,10 @@ survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
   });
 }));
 
-// LOGOUT
-survAPIApplication.get('/logout', (req, res) => {
-  if(!checkSession(req)) res.redirect("/");
+const LogoutController = require('./infrastructure/web/router/controllers/LogoutController');
 
-  const sessionTmp = req.session;
-  sessionTmp.destroy();
-  res.render('index.ejs', {username: -1});
-});
+// LOGOUT
+survAPIApplication.get('/logout', LogoutController.logout);
 
 // POST Route for register
 // This route is only accessible by the predefined admin user
@@ -228,7 +226,7 @@ survAPIApplication.post('/register', asyncMiddleware(async (req, res, next) => {
 
 survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => {
 
-  if(!checkSession(req)) res.redirect("/login");
+  if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
   const cameras = await Camera.findAll();
 
@@ -244,7 +242,7 @@ survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => 
 
 survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
 
-  if(!checkSession(req)) res.redirect("/login");
+  if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
   const cameras = await Camera.findAll();
   console.log(cameras);
@@ -253,7 +251,7 @@ survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
 
 survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) => {
 
-  if(!checkSession(req)) res.redirect("/login");
+  if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
   // TODO validation
   const { name, description, ip, port, resolution} = req.body;
@@ -274,7 +272,7 @@ survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) =
 
 survAPIApplication.get('/cameras/success', asyncMiddleware(async (req, res, next) => {
 
-  if(!checkSession(req)) res.redirect("/login");
+  if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
   const cameras = await Camera.findAll();
   console.log(cameras);
@@ -374,5 +372,5 @@ async function checkDatabaseConnection() {
 
 //The 404 Route (ALWAYS Keep this as the last route)
 survAPIApplication.get('*', function(req, res){
-  res.status(404).render("error.ejs", {username: (checkSession(req)) ? sessionTmp.username : 0});
+  res.status(404).render("error.ejs", {username: (SessionManager.checkSession(req)) ? sessionTmp.username : 0});
 });
