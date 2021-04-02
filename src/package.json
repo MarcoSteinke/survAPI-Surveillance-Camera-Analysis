@@ -2,10 +2,10 @@
   "name": "surveillance-server",
   "version": "1.0.0",
   "description": "",
-  "main": "survAPIApplication.js",
+  "main": "SurvAPIApplication.js",
   "scripts": {
     "test": "mocha",
-    "devStart": "nodemon index.js"
+    "devStart": "nodemon SurvAPIApplication.js"
   },
   "author": "Marco Steinke",
   "license": "MIT",
