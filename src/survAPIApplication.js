@@ -132,16 +132,16 @@ const SessionManager = require("./infrastructure/security/SessionManager");
 // enable axios for requests
 const axios = require('axios');
   
-  // Require body-parser to parse requests easily
-  var bodyParser = require('body-parser');
-  survAPIApplication.use(express.json());
+// Require body-parser to parse requests easily
+var bodyParser = require('body-parser');
+survAPIApplication.use(express.json());
+
+// Controllers
+const LogoutController = require('./infrastructure/web/router/controllers/LogoutController');
+const SurvAPIController = require('./infrastructure/web/router/controllers/SurvAPIController');
+const LoginController = require('./infrastructure/web/router/controllers/LoginController');
   
-survAPIApplication.get('/', (req, res) => {
-
-  // if the user is not logged in, the username will be set to 0.
-  res.render("index.ejs", {username: (SessionManager.checkSession(req)) ? sessionTmp.username : 0});
-
-});
+survAPIApplication.get('/', SurvAPIController.index);
 
 // Route for testing ejs templates
 survAPIApplication.get('/detection', (req, res) => {
@@ -151,12 +151,7 @@ survAPIApplication.get('/detection', (req, res) => {
 });
 
 // GET Route for login
-survAPIApplication.get('/login', (req, res) => {
-
-  if(SessionManager.checkSession(req)) res.redirect("/");
-  res.render("login.ejs", {username: ""});
-
-});
+survAPIApplication.get('/login', LoginController.getLogin);
 
 // POST Route for login
 survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
@@ -187,8 +182,6 @@ survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
       }
   });
 }));
-
-const LogoutController = require('./infrastructure/web/router/controllers/LogoutController');
 
 // LOGOUT
 survAPIApplication.get('/logout', LogoutController.logout);
