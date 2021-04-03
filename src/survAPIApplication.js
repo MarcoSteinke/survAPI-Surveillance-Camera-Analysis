@@ -336,6 +336,4 @@ async function checkDatabaseConnection() {
 }
 
 //The 404 Route (ALWAYS Keep this as the last route)
-survAPIApplication.get('*', function(req, res){
-  res.status(404).render("error.ejs", {username: (SessionManager.checkSession(req)) ? sessionTmp.username : 0});
-});
+survAPIApplication.get('*', SurvAPIRouter.error);
