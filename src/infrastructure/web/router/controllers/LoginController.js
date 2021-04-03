@@ -9,7 +9,7 @@ exports.getLogin = function(req, res) {
     res.render("login.ejs", {username: "", error: ""});
 }
 
-exports.postLogin = SurvAPIRouter.asyncMiddleware(async (req, res, next) => {
+exports.postLogin = SessionManager.asyncMiddleware(async (req, res, next) => {
 
     sessionTmp = req.session;
     const { username, password } = req.body;

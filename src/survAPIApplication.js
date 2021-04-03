@@ -11,7 +11,6 @@ const express = require('express');
 const survAPIApplication = express();
 
 const SurvAPIRouter = require('./infrastructure/web/router/SurvAPIRouter.js');
-const asyncMiddleware = SurvAPIRouter.asyncMiddleware;
 
 survAPIApplication.set('views','./infrastructure/web/views');
 
@@ -161,7 +160,7 @@ survAPIApplication.get('/logout', LogoutController.logout);
 
 // POST Route for register
 // This route is only accessible by the predefined admin user
-survAPIApplication.post('/register', asyncMiddleware(async (req, res, next) => {
+survAPIApplication.post('/register', SessionManager.asyncMiddleware(async (req, res, next) => {
 
   sessionTmp = req.session;
   const { username, password } = req.body;
@@ -190,7 +189,7 @@ survAPIApplication.post('/register', asyncMiddleware(async (req, res, next) => {
   res.render("index.ejs", {username: sessionTmp.username});
 }));
 
-survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => {
+survAPIApplication.get('/camera/:id', SessionManager.asyncMiddleware(async (req, res, next) => {
 
   if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
@@ -206,7 +205,7 @@ survAPIApplication.get('/camera/:id', asyncMiddleware(async (req, res, next) => 
   res.render("camera.ejs", {cameraId: req.params.id, cameras: cameras, selectedCamera: selectedCamera, username: sessionTmp.username});
 }));
 
-survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
+survAPIApplication.get('/cameras', SessionManager.asyncMiddleware(async (req, res, next) => {
 
   if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
@@ -215,7 +214,7 @@ survAPIApplication.get('/cameras', asyncMiddleware(async (req, res, next) => {
   res.render("addCamera.ejs", {cameras: cameras, username: sessionTmp.username});
 }));
 
-survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) => {
+survAPIApplication.post('/cameras/add', SessionManager.asyncMiddleware(async (req, res, next) => {
 
   if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
@@ -236,7 +235,7 @@ survAPIApplication.post('/cameras/add', asyncMiddleware(async (req, res, next) =
 })
 );
 
-survAPIApplication.get('/cameras/success', asyncMiddleware(async (req, res, next) => {
+survAPIApplication.get('/cameras/success', SessionManager.asyncMiddleware(async (req, res, next) => {
 
   if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
@@ -246,7 +245,7 @@ survAPIApplication.get('/cameras/success', asyncMiddleware(async (req, res, next
 }));
 
 // Route used to persist detections inside of the database. Data sent to the server will be validated by Sequelize.
-survAPIApplication.post('/detection', asyncMiddleware(async (req, res, next) => {
+survAPIApplication.post('/detection', SessionManager.asyncMiddleware(async (req, res, next) => {
 
   // parse fields from body
   const { camera, objects } = req.body;
