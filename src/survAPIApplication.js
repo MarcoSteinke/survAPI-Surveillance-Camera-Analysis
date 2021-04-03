@@ -98,7 +98,7 @@ const Detection = sequelize.define("detection", {
   time: DataTypes.TEXT
 })
 
-const User = sequelize.define("user", {
+/*const User = sequelize.define("user", {
   id: {
     primaryKey: true,
     type: DataTypes.INTEGER
@@ -106,7 +106,7 @@ const User = sequelize.define("user", {
   username: DataTypes.TEXT,
   password: DataTypes.TEXT,
   role: DataTypes.INTEGER
-});
+});*/
 
 const Camera = sequelize.define("camera", {
   id: {
@@ -154,34 +154,7 @@ survAPIApplication.get('/detection', (req, res) => {
 survAPIApplication.get('/login', LoginController.getLogin);
 
 // POST Route for login
-survAPIApplication.post('/login', asyncMiddleware(async (req, res, next) => {
-
-  sessionTmp = req.session;
-  const { username, password } = req.body;
-
-  sessionTmp.username = username;
-
-  let user = await User.findOne({where: { username: username}});
-
-  console.log(user);
-
-  // if the username is unknown, set the username to 0 and add an error message
-  if(user == null) {
-    res.render("login.ejs", {username: 0, error: "This username is unknown."});
-    return;
-  }
-
-  // if the username is known, but the password is wrong, set the username to 0 and add an error message
-  let loggedIn = await bcrypt.compare(password, user.password, function(err, result) {
-      if(!err && result) {
-        res.render("login.ejs", {username: sessionTmp.username, error: ""});
-      } else {
-        res.render("login.ejs", {username: 0, error: "This password is wrong."});
-        sessionTmp.destroy();
-        return;
-      }
-  });
-}));
+survAPIApplication.post('/login', LoginController.postLogin);
 
 // LOGOUT
 survAPIApplication.get('/logout', LogoutController.logout);
