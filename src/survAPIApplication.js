@@ -85,6 +85,7 @@ survAPIApplication.use(express.json());
 const LogoutController = require('./infrastructure/web/router/controllers/LogoutController');
 const SurvAPIController = require('./infrastructure/web/router/controllers/SurvAPIController');
 const LoginController = require('./infrastructure/web/router/controllers/LoginController');
+const RegistrationController = require('./infrastructure/web/router/controllers/RegistrationController');
   
 survAPIApplication.get('/', SurvAPIController.index);
 
@@ -106,34 +107,7 @@ survAPIApplication.get('/logout', LogoutController.logout);
 
 // POST Route for register
 // This route is only accessible by the predefined admin user
-survAPIApplication.post('/register', SessionManager.asyncMiddleware(async (req, res, next) => {
-
-  sessionTmp = req.session;
-  const { username, password } = req.body;
-
-  sessionTmp.username = username;
-
-  let user = await User.findOne({where: { username: username}});
-
-  if(!user) {
-    bcrypt.genSalt(saltRounds, function(err, salt) {
-
-      bcrypt.hash(password, salt, function(err, hash) {
-
-          User.create(
-            {
-              username: username,
-              password: hash
-            }
-          );
-      });
-    });
-  }
-
-  console.log(sessionTmp.username);
-
-  res.render("index.ejs", {username: sessionTmp.username});
-}));
+survAPIApplication.post('/register', RegistrationController.postRegister);
 
 survAPIApplication.get('/camera/:id', SessionManager.asyncMiddleware(async (req, res, next) => {
 

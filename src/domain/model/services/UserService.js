@@ -6,3 +6,12 @@ exports.findUser = async function(username) {
 
     return user;
 }
+
+exports.createUser = async function(username, hash) {
+    User.create(
+        {
+          username: username,
+          password: hash
+        }
+      );
+}
