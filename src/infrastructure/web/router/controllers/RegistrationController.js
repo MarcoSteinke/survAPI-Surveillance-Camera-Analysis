@@ -29,3 +29,9 @@ exports.postRegister = SessionManager.asyncMiddleware(async (req, res, next) => 
   
     res.render("index.ejs", {username: sessionTmp.username});
 });
+
+exports.getRegister = function(req, res) {
+
+    if(SessionManager.checkSession(req)) res.redirect("/");
+    res.render("register.ejs", {username: "", error: ""});
+}

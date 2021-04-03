@@ -98,12 +98,12 @@ survAPIApplication.post('/login', LoginController.postLogin);
 // LOGOUT
 survAPIApplication.get('/logout', LogoutController.logout);
 
+// GET Route for register
+survAPIApplication.get('/register', RegistrationController.getRegister);
+
 // POST Route for register
 // This route is only accessible by the predefined admin user
 survAPIApplication.post('/register', RegistrationController.postRegister);
-
-// Error mapping
-survAPIApplication.get('*', SurvAPIRouter.error);
 
 // Route for testing ejs templates
 survAPIApplication.get('/detection', (req, res) => {
@@ -227,7 +227,10 @@ survAPIApplication.get('/video', function(req, res) {
       res.writeHead(200, head)
       fs.createReadStream(path).pipe(res)
     }
-  });
+});
+
+// Error mapping
+survAPIApplication.get('*', SurvAPIRouter.error);
 
 const SequelizeDatabaseConnection = require("./infrastructure/persistence/SequelizeDatabaseConnection");
 
