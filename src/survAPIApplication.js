@@ -89,13 +89,6 @@ const RegistrationController = require('./infrastructure/web/router/controllers/
   
 survAPIApplication.get('/', SurvAPIController.index);
 
-// Route for testing ejs templates
-survAPIApplication.get('/detection', (req, res) => {
-  if(SessionManager.checkSession(req))
-    res.render("form.ejs", {username: sessionTmp.username});
-  else res.redirect("/login");
-});
-
 // GET Route for login
 survAPIApplication.get('/login', LoginController.getLogin);
 
@@ -108,6 +101,16 @@ survAPIApplication.get('/logout', LogoutController.logout);
 // POST Route for register
 // This route is only accessible by the predefined admin user
 survAPIApplication.post('/register', RegistrationController.postRegister);
+
+// Error mapping
+survAPIApplication.get('*', SurvAPIRouter.error);
+
+// Route for testing ejs templates
+survAPIApplication.get('/detection', (req, res) => {
+  if(SessionManager.checkSession(req))
+    res.render("form.ejs", {username: sessionTmp.username});
+  else res.redirect("/login");
+});
 
 survAPIApplication.get('/camera/:id', SessionManager.asyncMiddleware(async (req, res, next) => {
 
@@ -229,6 +232,3 @@ survAPIApplication.get('/video', function(req, res) {
 const SequelizeDatabaseConnection = require("./infrastructure/persistence/SequelizeDatabaseConnection");
 
 survAPIApplication.listen(SequelizeDatabaseConnection.port, () =>  SequelizeDatabaseConnection.checkDatabaseConnection());
-
-//The 404 Route (ALWAYS Keep this as the last route)
-survAPIApplication.get('*', SurvAPIRouter.error);
