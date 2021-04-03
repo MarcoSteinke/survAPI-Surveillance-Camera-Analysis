@@ -1,5 +1,4 @@
 const SessionManager = require("../../../security/SessionManager");
-const SurvAPIRouter = require("../SurvAPIRouter");
 const UserService = require("../../../../domain/model/services/UserService");
 const AuthenticationService = require("../../../../domain/model/services/AuthenticationService");
 
