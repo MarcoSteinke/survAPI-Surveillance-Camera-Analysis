@@ -4,12 +4,19 @@ const repository = SequelizeDatabaseConnection.repository;
 
 const DataTypes = SequelizeDatabaseConnection.datatypes;
 
-exports.User = repository.define("user", {
+exports.Detection = repository.define("detection", {
     id: {
       primaryKey: true,
+      type: DataTypes.BIGINT
+    },
+    camera: {
       type: DataTypes.INTEGER
     },
-    username: DataTypes.TEXT,
-    password: DataTypes.TEXT,
-    role: DataTypes.INTEGER
+    objects: DataTypes.TEXT,
+    date: {
+      type: DataTypes.DATE,
+      //allowNull: false,
+      //defaultValue: Sequelize.NOW
+    },
+    time: DataTypes.TEXT
 });

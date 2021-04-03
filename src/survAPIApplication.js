@@ -1,9 +1,5 @@
 // Administrator settings ( will be moved to properties file later )
-const port = 3000;
-const DB = 'SurvAPI';
-const DB_USER = 'root';
-const DB_PASSWORD = 'example';
-const DB_HOST = 'localhost';
+
 // if this is set to true, detections will be deleted on restart
 const testing = true;
 
@@ -68,60 +64,10 @@ mime.getExtension('application/json');         // ⇨ 'json'
 mime.getExtension('text/html; charset=utf8');  // ⇨ 'html'
 mime.getExtension('text/html');  // ⇨ 'html'
 
-
-const { Sequelize, DataTypes } = require('sequelize');
-
-// Option 2: Passing parameters separately (other dialects)
-const sequelize = new Sequelize(DB, DB_USER, DB_PASSWORD, {
-    host: DB_HOST,
-    dialect: 'mysql',
-    define: {
-      timestamps: false
-  }
-});
-
-const Detection = sequelize.define("detection", {
-  id: {
-    primaryKey: true,
-    type: DataTypes.BIGINT
-  },
-  camera: {
-    type: DataTypes.INTEGER
-  },
-  objects: DataTypes.TEXT,
-  date: {
-    type: DataTypes.DATE,
-    //allowNull: false,
-    //defaultValue: Sequelize.NOW
-  },
-  time: DataTypes.TEXT
-})
-
-/*const User = sequelize.define("user", {
-  id: {
-    primaryKey: true,
-    type: DataTypes.INTEGER
-  },
-  username: DataTypes.TEXT,
-  password: DataTypes.TEXT,
-  role: DataTypes.INTEGER
-});*/
-
-const Camera = sequelize.define("camera", {
-  id: {
-    primaryKey: true,
-    type: DataTypes.BIGINT
-  },
-  name: DataTypes.TEXT,
-  description: DataTypes.TEXT,
-  ip: DataTypes.TEXT,
-  port: DataTypes.SMALLINT, // maximum port is 65535
-  resolution: DataTypes.SMALLINT
-});
-
 // dummy data
 const DummyData = require('./test/DummyData.js');
-const testData = new DummyData(Camera);
+const SequelizeCameraRepository = require("./infrastructure/persistence/sequelize/SequelizeCameraRepository");
+const testData = new DummyData(SequelizeCameraRepository.Camera);
 
 // Module imports:
 const IMPORTS_PREFIX = './subsystems';
@@ -209,9 +155,10 @@ survAPIApplication.get('/cameras', SessionManager.asyncMiddleware(async (req, re
 
   if(!SessionManager.checkSession(req)) res.render("login.ejs", {error: "Please login before accessing this page.", username: 0});
 
+  const Camera = require("./infrastructure/persistence/sequelize/SequelizeCameraRepository").Camera;
   const cameras = await Camera.findAll();
   console.log(cameras);
-  res.render("addCamera.ejs", {cameras: cameras, username: sessionTmp.username});
+  res.render("addCamera.ejs", {cameras: cameras, username: (sessionTmp = req.session).username});
 }));
 
 survAPIApplication.post('/cameras/add', SessionManager.asyncMiddleware(async (req, res, next) => {
@@ -305,35 +252,9 @@ survAPIApplication.get('/video', function(req, res) {
     }
   });
 
-survAPIApplication.listen(port, () => checkDatabaseConnection());
+const SequelizeDatabaseConnection = require("./infrastructure/persistence/SequelizeDatabaseConnection");
 
-/* Checks the database connection each time the application is run.
- * Uses Sequelize's "authenticate()" to do so.
- */
-async function checkDatabaseConnection() {
-    try {
-        await sequelize.authenticate();
-        console.log('Connection has been established successfully.');
-        console.log(new Date().toUTCString());
-
-        // clear database on startup (only for testing)
-        if(testing) {
-          Detection.destroy({
-            truncate: true
-          });
-
-          Camera.destroy({
-            truncate: true
-          });
-
-          // Add some dummy data
-          testData.cameras();
-          
-        }
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
-}
+survAPIApplication.listen(SequelizeDatabaseConnection.port, () =>  SequelizeDatabaseConnection.checkDatabaseConnection());
 
 //The 404 Route (ALWAYS Keep this as the last route)
 survAPIApplication.get('*', SurvAPIRouter.error);

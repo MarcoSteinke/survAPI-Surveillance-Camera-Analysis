@@ -2,11 +2,15 @@ module.exports = class DummyData {
 
     constructor(camera) {
         this.camera = camera;
+        this.cameraRepository = require("../infrastructure/persistence/sequelize/SequelizeCameraRepository");
+        this.Camera = this.cameraRepository.Camera;
+        this.userRepository = require("../infrastructure/persistence/sequelize/SequelizeUserRepository");
+        this.detectionRepository = require("../infrastructure/persistence/sequelize/SequelizeDetectionRepository");
     }
 
     async cameras() {
 
-        await this.camera.create(
+        await this.Camera.create(
             {
               name: "Front Door",
               description: "Simple Front door camera",
@@ -16,7 +20,7 @@ module.exports = class DummyData {
             }
           );
 
-          await this.camera.create(
+          await this.Camera.create(
             {
               name: "Kitchen",
               description: "If you want to know who steals your chocolate",
@@ -26,7 +30,7 @@ module.exports = class DummyData {
             }
           );
 
-          await this.camera.create(
+          await this.Camera.create(
             {
               name: "Level 1 Elevator",
               description: "Camera directed at the doors in level 1",
@@ -36,7 +40,7 @@ module.exports = class DummyData {
             }
           );
 
-          await this.camera.create(
+          await this.Camera.create(
             {
               name: "Level 2 Elevator",
               description: "Camera directed at the doors in level 2",
@@ -44,10 +48,6 @@ module.exports = class DummyData {
               port: 37482,
               resolution: 480
             }
-          );
-
-          
-
-          
+          );     
     }
 }
