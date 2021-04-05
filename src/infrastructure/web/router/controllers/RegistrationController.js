@@ -16,13 +16,7 @@ exports.postRegister = SessionManager.asyncMiddleware(async (req, res, next) => 
     let user = await UserService.findUser(username);
   
     if(!user) {
-      bcrypt.genSalt(saltRounds, function(err, salt) {
-  
-        bcrypt.hash(password, salt, function(err, hash) {
-  
-            UserService.createUser(username, hash);
-        });
-      });
+      UserService.generateHashedPasswordAndCreateUser(username, password, saltRounds);
     }
   
     console.log(sessionTmp.username);
