@@ -126,7 +126,7 @@ ___
 ### https://github.com/MarcoSteinke/survAPI-Surveillance-Camera-Analysis/milestone/1[Proof of Concept]
 
 
-`Due by April 30, 2021`
+`Due by August 31th, 2021`
 
 
 The Proof of Concept will be a fully working Webapplication which is able to add a camera to its database and persist anything which is detected, if it is defined as a target.
