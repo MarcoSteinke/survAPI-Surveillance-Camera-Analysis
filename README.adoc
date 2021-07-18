@@ -87,7 +87,7 @@ INFORMATION: more to follow in the future.
 - NodeJS
 - Docker
 - Docker-compose
-- Text/Code-Editor of your choice (I used VSCode)
+- Text/Code-Editor of your choice (I recommend PHPStorm or VSCode (VScodium if you support open source!)
 
 ### 2. Setup:
 
