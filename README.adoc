@@ -101,10 +101,58 @@ INFORMATION: more to follow in the future.
 
   brew install node
   
-### 3. Docker:
+### 3. Docker and Docker-compose:
 
 - The installation of Docker is different on each operating system.
 * `Windows`: Visit `[this.url]`
+
+* `Linux`:
+
+  sudo apt install docker docker-compose
+  
+* `MacOS`:
+
+  brew install docker docker-compose
+  
+  
+### 4. Run database:
+
+You have to navigate into `src` and then then run
+
+  docker-compose up
+  
+The command is the same on all operating systems
+
+### 5. Install dependencies:
+
+On all operating systems, run the following command in `src`:
+
+  npm install
+  
+### 6. Run the application:
+
+Now after each change in your codebase you will have to run the following commands:
+
+
+##### Tests:
+
+Please run the tests as often as you can after you changed the code!
+
+  npm test
+
+##### Compile ts to js:
+
+  npm run-script deploy
+  
+##### Finally run the application:
+
+  npm run-script devStart
+
+or
+
+  nodemon
+  
+
 
 INFORMATION: more to follow in the future.
 
