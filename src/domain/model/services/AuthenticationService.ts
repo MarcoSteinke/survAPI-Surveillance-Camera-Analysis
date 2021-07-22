@@ -11,6 +11,7 @@ import "@tsed/platform-express";
  * @param {Response} res Response in which the website will be rendered
  * @param {Session} sessionTmp current user session
  */
+//                                                                                                               v to be refactored
 exports.authenticate = async function(password: String, userPassword: String, res: Response, sessionTmp: Req, username: String) { 
     
     bcrypt_.compare(password, userPassword, function(err: Object, result: String) {
