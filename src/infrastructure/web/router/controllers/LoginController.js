@@ -26,5 +26,6 @@ exports.postLogin = SessionManager.asyncMiddleware(async (req, res, next) => {
     }
   
     // if the username is known, but the password is wrong, set the username to 0 and add an error message
-    let loggedIn = await AuthenticationService.authenticate(password, user.password, res, sessionTmp);
+    let loggedIn = await AuthenticationService.authenticate(password, user.password, res, sessionTmp, sessionTmp.username);
+    
   })
