@@ -5,6 +5,9 @@ const User = UserRepository.User;
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+exports.bcrypt = () => bcrypt;
+exports.saltRounds = () => saltRounds;
+
 exports.findUser = async function(username: String) {
     let user = await User.findOne({where: { username: username}});
 
