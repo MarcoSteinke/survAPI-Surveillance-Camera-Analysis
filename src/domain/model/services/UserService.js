@@ -22,6 +22,12 @@ async function createUser(username, hash) {
 
 exports.createUser = createUser;
 
+/**
+ * Hash the received password and create a new user with both the username and the hashed password.
+ * @param {String} username The username received from any form
+ * @param {String} password The rawPassword received from any form
+ * @param {Integer} saltRounds Amount of hashes applied to the password
+ */
 exports.generateHashedPasswordAndCreateUser = function(username, password, saltRounds) {
 
   bcrypt.genSalt(saltRounds, function(err, salt) {
