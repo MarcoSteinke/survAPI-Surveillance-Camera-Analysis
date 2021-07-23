@@ -1,6 +1,6 @@
 // bcrypt_
-let bcrypt_ = require("./UserService.ts").bcrypt();
-let saltRounds_ = require("./UserService.ts").saltRounds();
+let bcrypt_ = require("./UserService.js").bcrypt();
+let saltRounds_ = require("./UserService.js").saltRounds();
 import {Req, Response, Session} from "@tsed/common";
 import "@tsed/platform-express";
 
@@ -11,8 +11,7 @@ import "@tsed/platform-express";
  * @param {Response} res Response in which the website will be rendered
  * @param {Session} sessionTmp current user session
  */
-//                                                                                                               v to be refactored
-exports.authenticate = async function(password: String, userPassword: String, res: Response, sessionTmp: Req, username: String) { 
+exports.authenticate = async function(password: String, userPassword: String, res: Response, sessionTmp: Req, username: string) { 
     
     bcrypt_.compare(password, userPassword, function(err: Object, result: String) {
 

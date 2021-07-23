@@ -1,4 +1,4 @@
-class Detection {
+module.Detection = class {
 
     constructor(id, objects) {
         this.id = id;

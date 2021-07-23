@@ -31,7 +31,7 @@ exports.createUser = createUser;
  * @param {String} password The rawPassword received from any form
  * @param {Integer} saltRounds Amount of hashes applied to the password
  */
-exports.generateHashedPasswordAndCreateUser = function(username: String, password :String, saltRounds: Number) {
+exports.generateHashedPasswordAndCreateUser = function(username: string, password: String, saltRounds: Number) {
 
   bcrypt.genSalt(saltRounds, function(err: Object, salt: String) {
   

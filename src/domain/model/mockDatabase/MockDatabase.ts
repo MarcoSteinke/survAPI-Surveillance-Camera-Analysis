@@ -1,4 +1,11 @@
+let Detection = require("../detection/Detection.js");
+type Detection = typeof Detection;
+
 class MockDatabase {
+
+    db: Array<Detection>;
+    lastDetection: number;
+    intervalDuration: Number;
 
     constructor() {
         this.db = [];
@@ -6,7 +13,7 @@ class MockDatabase {
         this.intervalDuration = 10;
     }
 
-    saveDetection(detection) {
+    saveDetection(detection: Detection) {
 
         if(detection.getDate() / 1000 - this.lastDetection / 1000 < this.intervalDuration) {
             console.log("too short");
@@ -37,8 +44,8 @@ class MockDatabase {
         }
     }
 
-    getDetectionById(detectionId) {
-        let detection;
+    getDetectionById(detectionId: Number) {
+        let detection: Detection;
 
         this.db.forEach(storedDetection => {
 
@@ -50,8 +57,8 @@ class MockDatabase {
         return (detection != null) ? detection : new Detection(-1, null);
     }
 
-    getDetectionsByDate(date) {
-        let results = [];
+    getDetectionsByDate(date: Date) {
+        let results: Array<Detection> = [];
 
         this.db.forEach(detection => {
             if(detection.dateObject.equals(date)) {
@@ -63,4 +70,4 @@ class MockDatabase {
     }
 }
 
-const DATABASE = new MockDatabase();
+const DATABASE: MockDatabase = new MockDatabase();
