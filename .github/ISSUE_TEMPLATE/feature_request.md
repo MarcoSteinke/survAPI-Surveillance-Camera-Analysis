@@ -18,3 +18,6 @@ A clear and concise description of any alternative solutions or features you've 
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
+
+**Importance**
+Tell me how important this feature is to you and replace this sentence with a number from 1 to 5 from less to most important
