@@ -95,7 +95,7 @@ INFORMATION: more to follow in the future.
 * `Windows`: Visit `https://nodejs.org/en/download/[this url]`
 * `Linux`:
 
-  sudo apt install node
+  sudo apt install nodejs npm -y
   
 * `MacOS`:
 
